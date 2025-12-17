@@ -39,11 +39,11 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v6
 
-      - name: "Checkout Test Files"
-        uses: actions/checkout@v6
-        with:
-          repository: smashedr/test-files
-          path: tests/files
+      #- name: "Checkout Test Files"
+      #  uses: actions/checkout@v6
+      #  with:
+      #    repository: smashedr/test-files
+      #    path: tests/files
 
       - name: "Debug event.json"
         continue-on-error: true

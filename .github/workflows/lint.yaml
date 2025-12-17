@@ -120,16 +120,16 @@ jobs:
         with:
           shellcheck_opts: -e SC2012
 
-      - name: "Checkout Test Files"
-        if: ${{ !cancelled() }}
-        id: checkout
-        uses: actions/checkout@v6
-        with:
-          repository: smashedr/test-files
-          path: tests/files
+      #- name: "Checkout Test Files"
+      #  if: ${{ !cancelled() }}
+      #  id: checkout
+      #  uses: actions/checkout@v6
+      #  with:
+      #    repository: smashedr/test-files
+      #    path: tests/files
 
       - name: "pytest"
-        if: ${{ !cancelled() && steps.checkout.outcome == 'success' }}
+        if: ${{ !cancelled() }}
         id: coverage
         run: |
           uv run coverage run -m pytest
