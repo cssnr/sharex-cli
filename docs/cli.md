@@ -38,7 +38,7 @@ From PyPI: <https://pypi.org/p/sharex-cli>
 === "uv"
 
     ```shell
-    uv pip install sharex-cli
+    uv tool install sharex-cli
     ```
 
 From GitHub.
@@ -52,7 +52,7 @@ From GitHub.
 === "uv"
 
     ```shell
-    uv pip install git+https://github.com/cssnr/sharex-cli.git
+    uv tool install git+https://github.com/cssnr/sharex-cli.git
     ```
 
 From source.
@@ -82,7 +82,7 @@ Uninstall.
 === "uv"
 
     ```shell
-    uv pip uninstall sharex-cli
+    uv tool uninstall sharex-cli
     ```
 
 ## Setup

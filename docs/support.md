@@ -12,7 +12,7 @@ icon: lucide/message-circle-question-mark
 [![Discord](https://img.shields.io/badge/discord-%235865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/wXy6m2X8wY)
 
 If you run into any [issues](https://github.com/cssnr/sharex-cli/issues),
-want to see more [features](https://github.com/cssnr/sharex-cli/discussions/categories/feature-requests)
+want to see more [features](https://github.com/cssnr/sharex-cli/issues/new?template=1-feature.yaml)
 or just have a [question](https://github.com/cssnr/sharex-cli/discussions/categories/q-a)
 please let us know.
 :material-information-outline:{ title="All issues will be responded too!" }

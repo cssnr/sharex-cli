@@ -62,17 +62,18 @@ From PyPI: <https://pypi.org/p/sharex-cli>
 pip install sharex-cli
 ```
 
+```shell
+uv tool install sharex-cli
+```
+
 From GitHub.
 
 ```shell
 pip install git+https://github.com/cssnr/sharex-cli.git
 ```
 
-From source.
-
 ```shell
-git clone https://github.com/cssnr/sharex-cli.git
-pip install sharex-cli
+uv tool install git+https://github.com/cssnr/sharex-cli.git
 ```
 
 [![View Install Guide](https://img.shields.io/badge/view_install_guide-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/sharex-cli/cli/#install)
@@ -81,15 +82,13 @@ pip install sharex-cli
 
 To configure you need your server's ShareX Custom Uploader `*.sxcu` configuration JSON.
 
-The app will automatically enter configuration on the first run.
+The `--config` command allows you to enter the file path, or open a text editor.
 
 ```shell
-sharex
+sharex --config
 ```
 
-This allows you to enter a file path, or open a text editor to enter the contents.
-
-You can reconfigure with `--config` and pass a path to the config file.
+Or pass the config path directly to `--config`.
 
 ```shell
 sharex --config path/to/config.sxcu
@@ -99,23 +98,19 @@ sharex --config path/to/config.sxcu
 
 ## Usage<a id="usage"></a>
 
-Once the configuration is saved you can upload a file, or multiple.
+After [Setup](#setup) you can upload a file, or multiple.
 
 ```shell
-sharex file1.txt /path/to/file2.txt
+sharex file1 file2
 ```
 
-You can upload the contents of a directory, default glob is `*`.
+Or upload the contents of a directory, default glob is `*`.
 
 ```shell
 sharex dir1
 ```
 
-Or create an archive of the directory (no glob support).
-
-```shell
-sharex /path/to/dir2 -a
-```
+Or create an archive of the directory with the `--archive` flag.
 
 [![View Uploading Guide](https://img.shields.io/badge/view_usage_examples-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/sharex-cli/cli/#uploading)
 

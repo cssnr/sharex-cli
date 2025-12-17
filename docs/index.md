@@ -59,7 +59,21 @@ From PyPI: <https://pypi.org/p/sharex-cli>
 === "uv"
 
     ```shell
-    uv pip install sharex-cli
+    uv tool install sharex-cli
+    ```
+
+From GitHub.
+
+=== "pip"
+
+    ```shell
+    pip install git+https://github.com/cssnr/sharex-cli.git
+    ```
+
+=== "uv"
+
+    ```shell
+    uv tool install git+https://github.com/cssnr/sharex-cli.git
     ```
 
 [:lucide-square-terminal: View Install Guide](cli.md#install){ .md-button .md-button--primary }
@@ -74,23 +88,31 @@ The `--config` command allows you to enter the file path, or open a text editor.
 sharex --config
 ```
 
+Or pass the config path directly to `--config`.
+
+```shell
+sharex --config path/to/config.sxcu
+```
+
 See the detailed [Setup](cli.md#setup) guide for more details.
 
 [:lucide-square-terminal: View Setup Guide](cli.md#setup){ .md-button .md-button--primary }
 
 ## Usage
 
-Once the configuration is saved you can upload a file, or multiple.
+After [Setup](#setup) you can upload a file, or multiple.
 
 ```shell
-sharex file1
+sharex file1 file2
 ```
 
-You can upload the contents of a directory, default glob is `*`.
+Or upload the contents of a directory, default glob is `*`.
 
 ```shell
 sharex dir1
 ```
+
+Or create an archive of the directory with the `--archive` flag.
 
 See the [Uploading](cli.md#uploading) examples for more details.
 
