@@ -9,10 +9,10 @@ icon: lucide/message-circle-question-mark
 [![Features](https://img.shields.io/badge/features-brightgreen?style=for-the-badge&logo=googleanalytics&logoColor=white)](https://github.com/cssnr/sharex-cli/issues/new?template=1-feature.yaml)
 [![Issues](https://img.shields.io/badge/issues-red?style=for-the-badge&logo=southwestairlines&logoColor=white)](https://github.com/cssnr/sharex-cli/issues)
 [![Discussions](https://img.shields.io/badge/discussions-blue?style=for-the-badge&logo=rocketdotchat&logoColor=white)](https://github.com/cssnr/sharex-cli/discussions)
-[![Discord](https://img.shields.io/badge/discord-%235865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/wXy6m2X8wY)
+[![Discord](https://img.shields.io/badge/discord-yellow?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/wXy6m2X8wY)
 
 If you run into any [issues](https://github.com/cssnr/sharex-cli/issues),
-want to see more [features](https://github.com/cssnr/sharex-cli/discussions/categories/feature-requests)
+want to see more [features](https://github.com/cssnr/sharex-cli/issues/new?template=1-feature.yaml)
 or just have a [question](https://github.com/cssnr/sharex-cli/discussions/categories/q-a)
 please let us know.
 :material-information-outline:{ title="All issues will be responded too!" }
@@ -23,13 +23,6 @@ For new features or enhancements, please submit a [Feature Requests](https://git
 
 [:simple-googleanalytics: Request a Feature](https://github.com/cssnr/sharex-cli/issues/new?template=1-feature.yaml){ .md-button .md-button--primary }
 
-## Start Discussions
-
-For any questions, start a [General](https://github.com/cssnr/sharex-cli/discussions/categories/general)
-or [Q&A](https://github.com/cssnr/sharex-cli/discussions/categories/q-a) Discussion.
-
-[:simple-rocketdotchat: Start A Discussion](https://github.com/cssnr/sharex-cli/discussions){ .md-button .md-button--primary }
-
 ## Report Issues
 
 If you run into any problems or find a bug, please [open an issue](https://github.com/cssnr/sharex-cli/issues).
@@ -37,6 +30,13 @@ If you run into any problems or find a bug, please [open an issue](https://githu
 **These reports are treated with the highest priority.**
 
 [:simple-southwestairlines: Report an Issue](https://github.com/cssnr/sharex-cli/issues){ .md-button .md-button--primary }
+
+## Start Discussions
+
+For any questions, start a [General](https://github.com/cssnr/sharex-cli/discussions/categories/general)
+or [Q&A](https://github.com/cssnr/sharex-cli/discussions/categories/q-a) Discussion.
+
+[:simple-rocketdotchat: Start A Discussion](https://github.com/cssnr/sharex-cli/discussions){ .md-button .md-button--primary }
 
 ## Chat on Discord
 
