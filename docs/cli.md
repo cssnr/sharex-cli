@@ -43,7 +43,7 @@ From PyPI: <https://pypi.org/p/sharex-cli>
     uv tool install sharex-cli
     ```
 
-From GitHub.
+From GitHub: [https://github.com/cssnr/sharex-cli](https://github.com/cssnr/sharex-cli?tab=readme-ov-file#readme)
 
 === "pip"
 
@@ -138,8 +138,6 @@ Download your servers ShareX Custom Uploader (*.sxcu) configuration, then:
 
 File Path:
 ```
-
-Once complete you can [upload](#upload) files.
 
 ## Upload
 

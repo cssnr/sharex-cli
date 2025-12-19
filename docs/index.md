@@ -142,7 +142,7 @@ Partial Configuration Example.
 
 !!! success "Server Support Request"
 
-     If your server is not supported, please submit [Server Support](https://github.com/cssnr/sharex-cli/issues/new?template=2-server.yaml) feature request.
+     If your server is not supported, please submit [Server Support :lucide-arrow-up-right:](https://github.com/cssnr/sharex-cli/issues/new?template=2-server.yaml) feature request.
 
 ### System
 
