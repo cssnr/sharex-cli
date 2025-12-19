@@ -26,6 +26,7 @@ body:
     attributes:
       label: Log Output
       description: Paste any relevant logs or output in this box.
+      placeholder: Output is automatically wrapped in a code block.
       render: shell
 
   - type: markdown

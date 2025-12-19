@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        All issues will be responded too.
+        The name of the server software or similar.
 
   - type: input
     id: url
@@ -16,28 +16,40 @@ body:
       required: false
     attributes:
       label: Server Software Link
-      description: Please provide a link to the server software you are using (not your server).
+      description: Please provide a link to the server software you are using (not your hosted server).
       placeholder: https://django-files.github.io/
 
   - type: textarea
     id: description
     validations:
-      required: true
+      required: false
     attributes:
-      label: Details
-      description: Please describe the feature or enhancement you are requesting and what it should do.
-      placeholder: Provide as many details as you can...
+      label: Description
+      description: Additional details of the server you are requesting.
+      placeholder: The body of the request, add any relevant information here.
 
   - type: textarea
     id: config
     validations:
-      required: true
+      required: false
     attributes:
-      label: ShareX Custom Uploader `*.sxcu` configuration
-      description: IMPORTANT! Make sure to REDACT your Authorization/Token!
+      label: ShareX Custom Uploader (*.sxcu) Configuration
+      description: Output is automatically wrapped in a code block.
       render: shell
+      placeholder: |
+        {
+          "Version": "15.0.0",
+          "RequestMethod": "POST",
+          "RequestURL": "REDACTED",
+          "Headers": { "Authorization": "REDACTED" },
+          "Body": "MultipartFormData",
+          "URL": "{json:url}",
+          ...
+        }
 
   - type: markdown
     attributes:
       value: |
+        Make sure to **remove any personally identifiable information** before submitting!
+
         Thank you for taking the time to make this report!
