@@ -38,7 +38,7 @@ Upload any file, multiple files, directories, use globs, create archives and muc
 
 See the [Quick Start](#quick-start) section to get started...
 
-!!! tip "There is a detailed [Installation](cli.md#install) and [Uploading](cli.md#upload) guide available."
+!!! tip "There are detailed [Install](cli.md#install), [Configure](cli.md#configure) and [Upload](cli.md#upload) guide available."
 
 If you run into any issues or have any questions, [support](support.md) is available.
 
