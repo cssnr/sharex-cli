@@ -8,9 +8,11 @@ icon: lucide/square-terminal
 
 With the CLI you can easily upload any files or folders with globs or as an archive.
 
-To get started see the [Setup](#setup) and [Uploading](#uploading) section.
+To get started see the [Install](#install), [Configure](#configure) and [Upload](#upload) guides.
 
-To use run the `sharex` command.
+To view the source code, see the [cli.py :lucide-arrow-up-right:](https://github.com/cssnr/sharex-cli/blob/master/src/sharex/cli.py) on GitHub.
+
+To use run the `sharex` command from your terminal.
 
 ```shell
 sharex [OPTIONS] [FILES]...  # (1)!
@@ -21,8 +23,8 @@ sharex [OPTIONS] [FILES]...  # (1)!
 <!-- 1 -->
 
 - [Install](#install)
-- [Setup](#setup)
-- [Uploading](#uploading)
+- [Configure](#configure)
+- [Upload](#upload)
 - [Environment](#environment)
 
 ## Install
@@ -71,6 +73,20 @@ From source.
     uv pip install install sharex-cli
     ```
 
+Upgrade.
+
+=== "pip"
+
+    ```shell
+    pip install -U sharex-cli
+    ```
+
+=== "uv"
+
+    ```shell
+    uv tool upgrade
+    ```
+
 Uninstall.
 
 === "pip"
@@ -85,7 +101,7 @@ Uninstall.
     uv tool uninstall sharex-cli
     ```
 
-## Setup
+## Configure
 
 To configure you need your server's ShareX Custom Uploader `*.sxcu` configuration JSON.
 
@@ -123,11 +139,11 @@ Download your servers ShareX Custom Uploader (*.sxcu) configuration, then:
 File Path:
 ```
 
-Once complete you can start [uploading](#uploading) files.
+Once complete you can [upload](#upload) files.
 
-## Uploading
+## Upload
 
-Upload a file.
+Upload a file run the `sharex` command with the path to the file to upload.
 
 ```shell
 sharex file.txt
@@ -195,13 +211,13 @@ sharex
 
 Many options support setting environment variable defaults.
 
-| Variable&nbsp;Name | Default | Description           |
-| :----------------- | :-----: | :-------------------- |
-| `SHAREX_COPY`      |    1    | Copy URL to Clipboard |
-| `SHAREX_LAUNCH`    |    1    | Launch URL in Browser |
-| `SHAREX_YES`       |    0    | Answer YES to Prompts |
-| `SHAREX_VERBOSE`   |    0    | Verbose Output        |
-| `SHAREX_CONFIG`    |    -    | JSON Config Data      |
+| Environment&nbsp;Variable | Default | Type | Description           |
+| :------------------------ | :-----: | :--: | :-------------------- |
+| `SHAREX_COPY`             |    1    | bool | Copy URL to Clipboard |
+| `SHAREX_LAUNCH`           |    1    | bool | Launch URL in Browser |
+| `SHAREX_YES`              |    0    | bool | Answer YES to Prompts |
+| `SHAREX_VERBOSE`          |    0    | bool | Verbose Output        |
+| `SHAREX_CONFIG`           |    -    | str  | JSON Config Data      |
 
 Allowed boolean values, case-insensitive.
 

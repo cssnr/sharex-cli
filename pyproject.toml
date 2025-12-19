@@ -32,6 +32,7 @@ Issues = "https://github.com/cssnr/sharex-cli/issues"
 
 [project.scripts]
 sharex = "sharex.cli:app"
+sharex-cli = "sharex.cli:app"
 
 [dependency-groups]
 dev = [

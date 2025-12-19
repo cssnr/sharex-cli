@@ -27,16 +27,16 @@
 
 - [Features](#features)
 - [Install](#install)
-- [Setup](#setup)
+- [Configure](#configure)
 - [Usage](#usage)
 - [Support](#support)
 - [Contributing](#contributing)
 
-Command Line Interface to Upload Files to a ShareX Server using a ShareX Custom Uploader `.sxcu` configuration file.
+Command Line Interface to Upload Files to a ShareX Server using a ShareX Custom Uploader `.sxcu` configuration.
 
 Upload any file, multiple files, directories, use globs, create archives and much more...
 
-To get started [Install](#install) the app and view the [Usage](#usage).
+To get started [Install](#install) the app, [Configure](#configure) your server and view the [Usage](#usage).
 
 If you run into any issues or have any questions, [support](#support) is available.
 
@@ -66,7 +66,7 @@ pip install sharex-cli
 uv tool install sharex-cli
 ```
 
-From GitHub.
+From GitHub: [https://github.com/cssnr/sharex-cli](https://github.com/cssnr/sharex-cli?tab=readme-ov-file#readme)
 
 ```shell
 pip install git+https://github.com/cssnr/sharex-cli.git
@@ -78,7 +78,7 @@ uv tool install git+https://github.com/cssnr/sharex-cli.git
 
 [![View Install Guide](https://img.shields.io/badge/view_install_guide-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/sharex-cli/cli/#install)
 
-## Setup<a id="setup"></a>
+## Configure<a id="configure"></a>
 
 To configure you need your server's ShareX Custom Uploader `*.sxcu` configuration JSON.
 
@@ -94,37 +94,38 @@ Or pass the config path directly to `--config`.
 sharex --config path/to/config.sxcu
 ```
 
-[![View Setup Guide](https://img.shields.io/badge/view_setup_guide-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/sharex-cli/cli/#setup)
+[![View Configure Guide](https://img.shields.io/badge/view_configure_guide-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/sharex-cli/cli/#configure)
 
 ## Usage<a id="usage"></a>
 
-After [Setup](#setup) you can upload a file, or multiple.
+To use run the `sharex` command with the path to the file to upload.
 
 ```shell
-sharex file1 file2
+sharex file.txt
+sharex file1.txt file2.txt
+sharex file.txt -n name.txt
 ```
 
-Or upload the contents of a directory, default glob is `*`.
+Directories can be uploaded as files using a glob (default `*`) or as an archive.
 
 ```shell
-sharex dir1
+sharex dir1  # non-recursive
+sharex dir1 -g '**'  # recursive
+sharex dir1 -a  # create an archive
 ```
 
-Or create an archive of the directory with the `--archive` flag.
+Tip: you will be shown a confirmation before files are uploaded.
 
-[![View Uploading Guide](https://img.shields.io/badge/view_usage_examples-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/sharex-cli/cli/#uploading)
+[![View Upload Guide](https://img.shields.io/badge/view_upload_guide-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/sharex-cli/cli/#upload)
 
 ## Support<a id="support"></a>
 
-For general help or to request a feature, see:
+If you run into any issues or need help getting started, please do one of the following:
 
 - Q&A Discussion: <https://github.com/cssnr/sharex-cli/discussions/categories/q-a>
-- Request a Feature: <https://github.com/cssnr/sharex-cli/issues/new?template=1-feature.yaml>
-- Chat with us on Discord: <https://discord.gg/wXy6m2X8wY>
-
-If you are experiencing an issue/bug or getting unexpected results, you can:
-
 - Report an Issue: <https://github.com/cssnr/sharex-cli/issues>
+- Request a Feature: <https://github.com/cssnr/sharex-cli/issues/new?template=1-feature.yaml>
+- Request Server Support: <https://github.com/cssnr/sharex-cli/issues/new?template=2-server.yaml>
 - Chat with us on Discord: <https://discord.gg/wXy6m2X8wY>
 
 [![Features](https://img.shields.io/badge/features-brightgreen?style=for-the-badge&logo=googleanalytics&logoColor=white)](https://github.com/cssnr/sharex-cli/issues/new?template=1-feature.yaml)

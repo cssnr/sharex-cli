@@ -10,7 +10,7 @@ Python projects can import the module directly.
 
 The `config` object must be a dictionary loaded from the ShareX `.sxcu` JSON.
 
-The `get_config` method loads this from a file or environment variable; or returns None.
+The `get_config` method loads this from a file or environment variable, or returns None.
 
 ```python
 from pathlib import Path
@@ -30,7 +30,7 @@ Or import the modules individually.
 from sharex import get_config, upload_file
 ```
 
-For more details see the [api.py :lucide-arrow-up-right:](https://github.com/cssnr/sharex-cli/blob/master/src/sharex-cli/api.py) source code.
+For more details see the [api.py :lucide-arrow-up-right:](https://github.com/cssnr/sharex-cli/blob/master/src/sharex/api.py) source code.
 
 !!! warning "This API is incomplete and may change in the future."
 

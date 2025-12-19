@@ -42,7 +42,7 @@ jobs:
         run: env
 
       - name: "Install UV"
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
 
       - name: "Install Python"
         run: |
@@ -76,7 +76,7 @@ jobs:
 
       - name: "isort"
         if: ${{ !cancelled() }}
-        uses: isort/isort-action@v1
+        uses: isort/isort-action@24d8a7a51d33ca7f36c3f23598dafa33f7071326 # v1.1.1
 
       - name: "mypy"
         if: ${{ !cancelled() }}
@@ -138,6 +138,6 @@ jobs:
 
       - name: "codecov"
         if: ${{ !cancelled() && steps.coverage.outcome == 'success' }}
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de # v5.5.2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}

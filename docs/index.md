@@ -24,14 +24,26 @@ Command Line Interface to Upload Files to a ShareX Server using a ShareX Custom 
 
 Upload any file, multiple files, directories, use globs, create archives and much more...
 
-!!! tip "To get started [Install](#install) the app and view the [Usage](#usage)."
+=== "pip"
+
+    ```shell
+    pip install sharex-cli
+    ```
+
+=== "uv"
+
+    ```shell
+    uv tool install sharex-cli
+    ```
+
+See the [Quick Start](#quick-start) section to get started...
+
+!!! tip "There is a detailed [Installation](cli.md#install) and [Uploading](cli.md#upload) guide available."
 
 If you run into any issues or have any questions, [support](support.md) is available.
 
 - [Features](#features)
-- [Install](#install)
-- [Setup](#setup)
-- [Usage](#usage)
+- [Quick Start](#quick-start)
 - [Support](#support)
 
 ## Features
@@ -46,9 +58,9 @@ If you run into any issues or have any questions, [support](support.md) is avail
 - Display confirmation before uploading multiple files.
 - Override all options with flags or env vars.
 
-## Install
+## Quick Start
 
-From PyPI: <https://pypi.org/p/sharex-cli>
+First, install from PyPi: <https://pypi.org/p/sharex-cli>
 
 === "pip"
 
@@ -62,61 +74,29 @@ From PyPI: <https://pypi.org/p/sharex-cli>
     uv tool install sharex-cli
     ```
 
-From GitHub.
+See the [Install](cli.md#install) guide for more options.
 
-=== "pip"
+Next, download your server's ShareX [Custom Uploader :lucide-arrow-up-right:](https://getsharex.com/docs/custom-uploader) `*.sxcu` configuration.
 
-    ```shell
-    pip install git+https://github.com/cssnr/sharex-cli.git
-    ```
-
-=== "uv"
-
-    ```shell
-    uv tool install git+https://github.com/cssnr/sharex-cli.git
-    ```
-
-[:lucide-square-terminal: View Install Guide](cli.md#install){ .md-button .md-button--primary }
-
-## Setup
-
-To configure you need your server's ShareX [Custom Uploader :lucide-arrow-up-right:](https://getsharex.com/docs/custom-uploader) `*.sxcu` configuration JSON.
-
-The `--config` command allows you to enter the file path, or open a text editor.
+Using the `--config` option you can enter a file path or open a text editor.
 
 ```shell
 sharex --config
 ```
 
-Or pass the config path directly to `--config`.
+See the [Configure](cli.md#configure) guide for more details.
+
+Finally, upload a file, multiple files, or a directory.
 
 ```shell
-sharex --config path/to/config.sxcu
+sharex screenshot.jpg
 ```
 
-See the detailed [Setup](cli.md#setup) guide for more details.
+See the [Upload](cli.md#upload) guide for more examples.
 
-[:lucide-square-terminal: View Setup Guide](cli.md#setup){ .md-button .md-button--primary }
+[:lucide-square-terminal: View Uploading Guide](cli.md#upload){ .md-button .md-button--primary }
 
-## Usage
-
-After [Setup](#setup) you can upload a file, or multiple.
-
-```shell
-sharex file1 file2
-```
-
-Or upload the contents of a directory, default glob is `*`.
-
-```shell
-sharex dir1
-```
-
-Or create an archive of the directory with the `--archive` flag.
-
-See the [Uploading](cli.md#uploading) examples for more details.
-
-[:lucide-square-terminal: View Uploading Guide](cli.md#uploading){ .md-button .md-button--primary }
+&nbsp;
 
 Additionally, you can import the module into your Python project.
 
@@ -135,6 +115,8 @@ print(f"{url=}")
 :fontawesome-brands-python: View the [Module Documentation](module.md) for more details.
 
 ## Support
+
+### Server
 
 Supports the following ShareX [Custom Uploader :lucide-arrow-up-right:](https://getsharex.com/docs/custom-uploader) `*.sxcu` configurations.
 
@@ -158,9 +140,23 @@ Partial Configuration Example.
 1.  Should include `json:` in the URL.
 2.  Should be `MultipartFormData`.
 
+!!! success "Server Support Request"
+
+     If your server is not supported, please submit [Server Support](https://github.com/cssnr/sharex-cli/issues/new?template=2-server.yaml) feature request.
+
+### System
+
+Runs on any operating system that supports Python.
+
 If you don't have Python you can [get it here :lucide-arrow-up-right:](https://www.python.org/downloads/).
+I highly recommend using [astral-sh/uv :lucide-arrow-up-right:](https://docs.astral.sh/uv/).
 
 &nbsp;
+
+[![Features](https://img.shields.io/badge/features-brightgreen?style=for-the-badge&logo=googleanalytics&logoColor=white)](https://github.com/cssnr/sharex-cli/issues/new?template=1-feature.yaml)
+[![Issues](https://img.shields.io/badge/issues-red?style=for-the-badge&logo=southwestairlines&logoColor=white)](https://github.com/cssnr/sharex-cli/issues)
+[![Discussions](https://img.shields.io/badge/discussions-blue?style=for-the-badge&logo=rocketdotchat&logoColor=white)](https://github.com/cssnr/sharex-cli/discussions)
+[![Discord](https://img.shields.io/badge/discord-yellow?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/wXy6m2X8wY)
 
 !!! question
 
