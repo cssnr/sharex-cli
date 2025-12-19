@@ -139,6 +139,10 @@ Download your servers ShareX Custom Uploader (*.sxcu) configuration, then:
 File Path:
 ```
 
+!!! success "Server Support Request"
+
+     If your server is not supported, please submit [Server Support :lucide-arrow-up-right:](https://github.com/cssnr/sharex-cli/issues/new?template=2-server.yaml) feature request.
+
 ## Upload
 
 Upload a file run the `sharex` command with the path to the file to upload.
