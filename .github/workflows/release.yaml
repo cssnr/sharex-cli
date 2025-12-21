@@ -8,13 +8,21 @@ env:
   name: "sharex-cli"
 
 jobs:
+  pyinstaller:
+    name: "PyInstaller"
+    uses: ./.github/workflows/pyinstaller.yaml
+    secrets: inherit
+    with:
+      version-file: "src/sharex/_version.py"
+    permissions:
+      contents: write
+
   build:
     name: "Build"
     uses: ./.github/workflows/build.yaml
     secrets: inherit
     with:
       version-file: "src/sharex/_version.py"
-
     permissions:
       contents: read
 

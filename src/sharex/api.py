@@ -17,7 +17,7 @@ session = requests.Session()
 session.headers.update({"user-agent": f"requests/sharex-{__version__}"})
 
 
-def upload_file(config, file_name: str, file_data: IO) -> str:
+def upload_file(config, file_name: str, file_data: IO, path: Optional[Path] = None) -> str:
     """Upload a File from an SXCU Config"""
     url = config["RequestURL"]
     # print(f"{url=}")
@@ -26,7 +26,7 @@ def upload_file(config, file_name: str, file_data: IO) -> str:
     headers = config["Headers"]
     key = config["URL"]
 
-    path = Path(file_name)
+    # path = Path(file_name)
     mime_type = get_type(path)
     # print(f"{mime_type=}")
 
@@ -71,7 +71,7 @@ def get_config(config_path: Optional[Path] = None, env_var: str = "", create_emp
         return None
 
 
-def get_type(file_path: Path) -> str:  # NOSONAR
+def get_type(path: Optional[Path] = None) -> str:  # NOSONAR
     """
     Get MIME type from guess_type or by reading magic headers
     https://en.wikipedia.org/wiki/List_of_file_signatures
@@ -79,14 +79,17 @@ def get_type(file_path: Path) -> str:  # NOSONAR
     Deprecated since version 3.13: Passing a file path instead of URL is soft deprecated. Use guess_file_type() for this.
     https://docs.python.org/3/library/mimetypes.html#mimetypes.guess_type
     """
-    mime_type, _ = mimetypes.guess_type(file_path, strict=False)
+    if not path:
+        return "text/plain"
+
+    mime_type, _ = mimetypes.guess_type(path, strict=False)
     if mime_type:
         return mime_type
 
-    if not file_path.is_file():
+    if not path.is_file():
         return "text/plain"
 
-    with open(file_path, "rb") as file:
+    with open(path, "rb") as file:
         chunk = file.read(512)
 
     # print(f"chunk: {type(chunk)} - {chunk[:20]}")

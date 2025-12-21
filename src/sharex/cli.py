@@ -124,7 +124,7 @@ def archive_dir(config, params: Dict[str, Any], dir_path: Path):
             f"Uploading File: [green bold]{click.format_filename(final_path.name)}[/green bold] - [yellow bold]{size}"
         ):
             with open(final_path, "rb") as f:
-                url = api.upload_file(config, final_path.name, f)
+                url = api.upload_file(config, final_path.name, f, final_path)
     print(url)
     copy_text(url)
     raise typer.Exit()
@@ -263,7 +263,7 @@ def main(  # NOSONAR
         ):
             file_name = _name if _name and len(_files) == 1 else file.name
             with open(file, "rb") as f:
-                url = api.upload_file(config, file_name, f)
+                url = api.upload_file(config, file_name, f, file)
         print(url)
         copy_text(url)
         if _launch and len(_files) == 1 and url:

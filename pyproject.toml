@@ -42,9 +42,12 @@ dev = [
   "hatch>=1.16.2",
   "isort>=7.0.0",
   "mypy>=1.19.1",
+  "pyinstaller>=6.17.0",
+  "pyinstaller-versionfile>=3.0.1",
   "pytest>=9.0.2",
   "ruff>=0.14.10",
   "tombi>=0.7.8",
+  "toml-run>=0.0.1",
   "ty>=0.0.4",
   "typer>=0.20.1",
   "types-pyperclip>=1.9.0.20250801",
@@ -64,7 +67,7 @@ build-backend = "hatchling.build"
 # Bandit
 # https://bandit.readthedocs.io/en/latest/config.html
 [tool.bandit]
-exclude_dirs = [".venv"]
+exclude_dirs = [".venv", "tests"]
 skips = ["B105", "B107"]
 
 # Black
@@ -76,7 +79,7 @@ extend-exclude = '(\.github)'
 # Coverage
 # https://coverage.readthedocs.io/en/latest/
 [tool.coverage.run]
-omit = ["_version.py", "utils.py", "cli.py"]
+omit = ["_version.py", "app.py", "utils.py", "cli.py"]
 source = ["src"]
 
 # Hatchling
@@ -117,3 +120,25 @@ extend-exclude = [".github"]
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F", "B", "Q"]
+
+[tool.scripts]
+version = "pyivf-make_version --source-format yaml --metadata-source .github/files/win-version.yaml --outfile win-version.txt"
+install = "pyinstaller -F -n sharex -i docs/favicon.ico src/app.py"
+build = "uv run hatch build"
+predocs = "rm -rf .cache site"
+docs = "zensical serve --open"
+format = ["black .", "tombi format .", "ruff format ."]
+lint = """
+black --check .
+run bandit
+run mypy
+run ruff
+run validate
+tombi lint .
+ty check -v .
+yamllint -c .github/yamllint.yaml .
+"""
+bandit = "bandit -c pyproject.toml -r ."
+mypy = "mypy ."
+ruff = "ruff check ."
+validate = "validate-pyproject pyproject.toml"

@@ -59,22 +59,25 @@ jobs:
           uv sync --locked --all-extras --dev
 
       - name: "Update Version"
-        if: ${{ inputs.version-file }}
-        env:
-          file: ${{ inputs.version-file }}
+        uses: justalemon/VersionPatcher@master
+        with:
           version: ${{ inputs.version }}
+          initpy-files: ${{ inputs.version-file }}
+
+      - name: "Debug Version"
+        continue-on-error: true
         run: |
-          sed -i "s/0.0.1/${version}/" "${file}"
-          cat "${file}"
+          cat ${{ inputs.version-file }}
 
       - name: "Build"
         run: |
           uv run hatch build
 
       - name: "List Artifacts"
+        continue-on-error: true
         working-directory: ${{ inputs.path }}
         run: |
-          results="$(tree . || ls -lAhR .)"
+          results="$(tree .)"
           echo "::group::results"
           echo "${results}"
           echo "::endgroup::"
