@@ -101,7 +101,7 @@ Uninstall.
     uv tool uninstall sharex-cli
     ```
 
-Download a Binary: https://github.com/cssnr/sharex-cli/releases/latest
+Download a Binary: <https://github.com/cssnr/sharex-cli/releases/latest>
 
 - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
 - [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)

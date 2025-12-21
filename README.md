@@ -76,14 +76,14 @@ pip install git+https://github.com/cssnr/sharex-cli.git
 uv tool install git+https://github.com/cssnr/sharex-cli.git
 ```
 
+[![View Install Guide](https://img.shields.io/badge/view_install_guide-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/sharex-cli/cli/#install)
+
 Download a Binary: https://github.com/cssnr/sharex-cli/releases/latest
 
 - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
 - [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)
 - [linux-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip)
 - [linux-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip)
-
-[![View Install Guide](https://img.shields.io/badge/view_install_guide-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/sharex-cli/cli/#install)
 
 ## Configure<a id="configure"></a>
 
