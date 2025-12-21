@@ -84,7 +84,7 @@ Upgrade.
 === "uv"
 
     ```shell
-    uv tool upgrade
+    uv tool upgrade sharex-cli
     ```
 
 Uninstall.

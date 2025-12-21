@@ -1,0 +1,114 @@
+name: "PyInstaller"
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        description: "Build Version"
+        type: string
+        default: ${{ github.ref_name }}
+      version-file:
+        description: "Version File"
+        type: string
+        default: ""
+
+jobs:
+  build:
+    name: "Build - ${{ matrix.os }}"
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            name: linux-amd64
+          - os: windows-latest
+            name: windows-amd64
+            extra: --version-file win-version.txt
+          - os: macos-latest
+            name: macos-amd64
+          # https://github.com/actions/partner-runner-images
+          - os: ubuntu-24.04-arm
+            name: linux-arm64
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v6
+
+      - name: "Debug"
+        continue-on-error: true
+        run: |
+          echo "version: ${{ inputs.version }}"
+          echo "matrix.os: ${{ matrix.os }}"
+          echo "matrix.name: ${{ matrix.name }}"
+          echo "matrix.extra: ${{ matrix.extra }}"
+
+      - name: "Install UV"
+        uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
+
+      - name: "Install Python 3.13"
+        run: |
+          uv python install 3.13
+
+      - name: "Install"
+        run: |
+          uv sync --locked --all-extras --dev
+
+      - name: "Update Version"
+        uses: justalemon/VersionPatcher@master
+        with:
+          version: ${{ inputs.version }}
+          initpy-files: ${{ inputs.version-file }}
+
+      - name: "Debug Version"
+        if: ${{ matrix.os == 'windows-latest' }}
+        continue-on-error: true
+        run: |
+          cat ${{ inputs.version-file }}
+
+      - name: "Windows Version"
+        if: ${{ matrix.os == 'windows-latest' }}
+        run: |
+          uv run pyivf-make_version --source-format yaml `
+            --metadata-source .github/files/win-version.yaml `
+            --outfile win-version.txt --version "0.${{ inputs.version }}"
+
+      - name: "Debug Windows Version"
+        if: ${{ matrix.os == 'windows-latest' }}
+        continue-on-error: true
+        run: |
+          cat win-version.txt
+
+      - name: "Build"
+        run: |
+          uv run pyinstaller -F -n sharex -i docs/favicon.ico ${{ matrix.extra }} src/app.py
+
+      - name: "List Artifacts"
+        continue-on-error: true
+        working-directory: dist
+        run: |
+          results="$(ls -lAhR .)"
+          echo "::group::results"
+          echo "${results}"
+          echo "::endgroup::"
+          md="Artifacts: \`${{ matrix.os }}\`\n\`\`\`text\n${results}\n\`\`\`"
+          echo -e "${md}" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: "Archive Release"
+        uses: thedoctor0/zip-release@0.7.5
+        with:
+          type: "zip"
+          directory: "dist"
+          filename: "${{ matrix.name }}.zip"
+
+      #- name: "Upload to Actions"
+      #  uses: actions/upload-artifact@v5
+      #  with:
+      #    name: ${{ matrix.name }}
+      #    path: "dist"
+
+      - name: "Upload Release"
+        uses: cssnr/upload-release-action@latest
+        with:
+          globs: dist/*.zip
