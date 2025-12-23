@@ -161,7 +161,7 @@ name = "GitHub Repo"
 [[project.extra.social]]
 icon = "simple/python"
 link = "https://pypi.org/p/sharex-cli"
-name = "PyPi Package"
+name = "PyPI Package"
 
 [[project.extra.social]]
 icon = "fontawesome/brands/discord"

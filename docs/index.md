@@ -69,7 +69,7 @@ If you run into any issues or have any questions, [support](support.md) is avail
 
 ## :lucide-plane-takeoff: Quick Start
 
-First, install from [PyPi :lucide-arrow-up-right:](https://pypi.org/p/sharex-cli)
+First, install from [PyPI :lucide-arrow-up-right:](https://pypi.org/p/sharex-cli)
 or [GitHub :lucide-arrow-up-right:](https://github.com/cssnr/sharex-cli/releases/latest).
 
 === "pip"

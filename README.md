@@ -56,7 +56,7 @@ If you run into any issues or have any questions, [support](#support) is availab
 
 ## Install<a id="install"></a>
 
-From PyPi: <https://pypi.org/p/sharex-cli>
+From PyPI: <https://pypi.org/p/sharex-cli>
 
 ```shell
 pip install sharex-cli
