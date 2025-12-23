@@ -47,15 +47,15 @@ Upload any file, multiple files, directories, use globs, create archives and muc
 
 See the [Quick Start](#quick-start) section to get started...
 
-!!! tip "There are detailed [Install](cli.md#install), [Configure](cli.md#configure) and [Upload](cli.md#upload) guide available."
+!!! tip "There are detailed [Install](cli.md#install), [Configure](cli.md#configure) and [Upload](cli.md#upload) guides available."
 
 If you run into any issues or have any questions, [support](support.md) is available.
 
-- [Features](#features)
-- [Quick Start](#quick-start)
-- [Support](#support)
+**:lucide-sparkles: [Features](#features)**  
+**:lucide-plane-takeoff: [Quick Start](#quick-start)**  
+**:lucide-cloud-upload: [Support](#support)**
 
-## Features
+## :lucide-sparkles: Features
 
 - Use a ShareX Custom Uploader `*.sxcu` config.
 - Upload a file or multiple files.
@@ -67,7 +67,7 @@ If you run into any issues or have any questions, [support](support.md) is avail
 - Display confirmation before uploading multiple files.
 - Override all options with flags or env vars.
 
-## Quick Start
+## :lucide-plane-takeoff: Quick Start
 
 First, install from [PyPi :lucide-arrow-up-right:](https://pypi.org/p/sharex-cli)
 or [GitHub :lucide-arrow-up-right:](https://github.com/cssnr/sharex-cli/releases/latest).
@@ -133,9 +133,7 @@ print(f"{url=}")
 
 :fontawesome-brands-python: View the [Module Documentation](module.md) for more details.
 
-## Support
-
-### Server
+## :lucide-cloud-upload: Server Support
 
 Supports the following ShareX [Custom Uploader :lucide-arrow-up-right:](https://getsharex.com/docs/custom-uploader) `*.sxcu` configurations.
 
@@ -162,13 +160,6 @@ Partial Configuration Example.
 !!! success "Server Support Request"
 
      If your server is not supported, please submit [Server Support :lucide-arrow-up-right:](https://github.com/cssnr/sharex-cli/issues/new?template=2-server.yaml) feature request.
-
-### System
-
-Runs on any operating system that supports Python.
-
-If you don't have Python you can [get it here :lucide-arrow-up-right:](https://www.python.org/downloads/).
-I highly recommend using [astral-sh/uv :lucide-arrow-up-right:](https://docs.astral.sh/uv/).
 
 &nbsp;
 
