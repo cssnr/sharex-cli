@@ -130,7 +130,7 @@ jobs:
           name: "dist"
           path: "dist"
 
-      - name: "List Artifacts"
+      - name: "Verify Artifacts"
         env:
           path: "dist"
           tag: ${{ github.ref_name }}

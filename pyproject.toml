@@ -25,6 +25,7 @@ dynamic = ["version"]
 Changelog = "https://github.com/cssnr/sharex-cli/releases"
 Discord = "https://discord.gg/wXy6m2X8wY"
 Documentation = "https://cssnr.github.io/sharex-cli/"
+Download = "https://github.com/cssnr/sharex-cli/releases/latest"
 Funding = "https://ko-fi.com/cssnr"
 GitHub = "https://github.com/cssnr/sharex-cli"
 Homepage = "https://cssnr.com/"
@@ -46,9 +47,9 @@ dev = [
   "pyinstaller-versionfile>=3.0.1",
   "pytest>=9.0.2",
   "ruff>=0.14.10",
-  "tombi>=0.7.8",
-  "toml-run>=0.0.1",
-  "ty>=0.0.4",
+  "tombi>=0.7.10",
+  "toml-run>=0.0.2",
+  "ty>=0.0.5",
   "typer>=0.20.1",
   "types-pyperclip>=1.9.0.20250801",
   "types-requests>=2.32.4.20250913",
@@ -124,9 +125,11 @@ select = ["E4", "E7", "E9", "F", "B", "Q"]
 [tool.scripts]
 version = "pyivf-make_version --source-format yaml --metadata-source .github/files/win-version.yaml --outfile win-version.txt"
 install = "pyinstaller -F -n sharex -i docs/favicon.ico src/app.py"
+test = ["coverage run -m pytest", "coverage report -m"]
 build = "uv run hatch build"
 predocs = "rm -rf .cache site"
 docs = "zensical serve --open"
+docs-build = "zensical build --clean"
 format = ["black .", "tombi format .", "ruff format ."]
 lint = """
 black --check .
@@ -134,11 +137,12 @@ run bandit
 run mypy
 run ruff
 run validate
+run yamllint
 tombi lint .
 ty check -v .
-yamllint -c .github/yamllint.yaml .
 """
 bandit = "bandit -c pyproject.toml -r ."
 mypy = "mypy ."
 ruff = "ruff check ."
 validate = "validate-pyproject pyproject.toml"
+yamllint = "yamllint -c .github/yamllint.yaml ."

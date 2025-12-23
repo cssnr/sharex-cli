@@ -76,8 +76,9 @@ jobs:
       - name: "List Artifacts"
         continue-on-error: true
         working-directory: ${{ inputs.path }}
+        shell: bash
         run: |
-          results="$(tree .)"
+          results="$(ls -lAhR .)"
           echo "::group::results"
           echo "${results}"
           echo "::endgroup::"

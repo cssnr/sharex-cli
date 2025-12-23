@@ -56,34 +56,21 @@ If you run into any issues or have any questions, [support](#support) is availab
 
 ## Install<a id="install"></a>
 
-From PyPI: <https://pypi.org/p/sharex-cli>
+From PyPi: <https://pypi.org/p/sharex-cli>
 
 ```shell
 pip install sharex-cli
-```
-
-```shell
 uv tool install sharex-cli
 ```
 
-From GitHub: [https://github.com/cssnr/sharex-cli](https://github.com/cssnr/sharex-cli?tab=readme-ov-file#readme)
-
-```shell
-pip install git+https://github.com/cssnr/sharex-cli.git
-```
-
-```shell
-uv tool install git+https://github.com/cssnr/sharex-cli.git
-```
-
-[![View Install Guide](https://img.shields.io/badge/view_install_guide-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/sharex-cli/cli/#install)
-
-Download a Binary: https://github.com/cssnr/sharex-cli/releases/latest
+From GitHub: https://github.com/cssnr/sharex-cli/releases/latest
 
 - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
 - [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)
 - [linux-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip)
 - [linux-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip)
+
+[![View Install Guide](https://img.shields.io/badge/view_install_guide-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/sharex-cli/cli/#install)
 
 ## Configure<a id="configure"></a>
 

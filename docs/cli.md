@@ -29,6 +29,13 @@ sharex [OPTIONS] [FILES]...  # (1)!
 
 ## Install
 
+If you have [Python :lucide-arrow-up-right:](https://www.python.org/downloads/) or [astral-sh/uv :lucide-arrow-up-right:](https://docs.astral.sh/uv/) installed,
+you should install using [Python](#python).
+
+Otherwise, you can [Download](#download) a binary release for your system.
+
+### Python
+
 From PyPI: <https://pypi.org/p/sharex-cli>
 
 === "pip"
@@ -101,12 +108,20 @@ Uninstall.
     uv tool uninstall sharex-cli
     ```
 
-Download a Binary: <https://github.com/cssnr/sharex-cli/releases/latest>
+### Download
+
+Download a Release: <https://github.com/cssnr/sharex-cli/releases/latest>
 
 - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
 - [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)
 - [linux-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip)
 - [linux-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip)
+
+To install a binary release, unzip the archive and place the file in your `PATH`.
+
+Unix: the file should already be executable, if not run `chmod +x sharex`.
+
+If you need additional help, [support](support.md) is available.
 
 ## Configure
 

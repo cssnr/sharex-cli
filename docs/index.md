@@ -36,6 +36,15 @@ Upload any file, multiple files, directories, use globs, create archives and muc
     uv tool install sharex-cli
     ```
 
+=== "download"
+
+    - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
+    - [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)
+    - [linux-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip)
+    - [linux-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip)
+
+    To install the binary see the [Download](cli.md#download) section.
+
 See the [Quick Start](#quick-start) section to get started...
 
 !!! tip "There are detailed [Install](cli.md#install), [Configure](cli.md#configure) and [Upload](cli.md#upload) guide available."
@@ -73,6 +82,15 @@ First, install from PyPi: <https://pypi.org/p/sharex-cli>
     ```shell
     uv tool install sharex-cli
     ```
+
+=== "download"
+
+    - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
+    - [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)
+    - [linux-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip)
+    - [linux-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip)
+
+    To install the binary see the [Download](cli.md#download) section.
 
 See the [Install](cli.md#install) guide for more options.
 
