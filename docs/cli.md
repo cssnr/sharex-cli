@@ -113,7 +113,7 @@ Uninstall.
 Download a Release: <https://github.com/cssnr/sharex-cli/releases/latest>
 
 - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
-- [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)
+- [macos-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-arm64.zip)
 - [linux-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip)
 - [linux-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip)
 

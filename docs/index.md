@@ -39,7 +39,7 @@ Upload any file, multiple files, directories, use globs, create archives and muc
 === "download"
 
     - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
-    - [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)
+    - [macos-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-arm64.zip)
     - [linux-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip)
     - [linux-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip)
 
@@ -69,7 +69,8 @@ If you run into any issues or have any questions, [support](support.md) is avail
 
 ## Quick Start
 
-First, install from PyPi: <https://pypi.org/p/sharex-cli>
+First, install from [PyPi :lucide-arrow-up-right:](https://pypi.org/p/sharex-cli)
+or [GitHub :lucide-arrow-up-right:](https://github.com/cssnr/sharex-cli/releases/latest).
 
 === "pip"
 
@@ -86,7 +87,7 @@ First, install from PyPi: <https://pypi.org/p/sharex-cli>
 === "download"
 
     - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
-    - [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)
+    - [macos-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-arm64.zip)
     - [linux-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip)
     - [linux-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip)
 
