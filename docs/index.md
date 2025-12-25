@@ -36,6 +36,16 @@ Upload any file, multiple files, directories, use globs, create archives and muc
     uv tool install sharex-cli
     ```
 
+=== "brew"
+
+    ```shell
+    brew tap cssnr/tap
+    ```
+
+    ```shell
+    brew install sharex-cli
+    ```
+
 === "download"
 
     - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)

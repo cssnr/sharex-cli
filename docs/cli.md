@@ -32,7 +32,9 @@ sharex [OPTIONS] [FILES]...  # (1)!
 If you have [Python :lucide-arrow-up-right:](https://www.python.org/downloads/) or [astral-sh/uv :lucide-arrow-up-right:](https://docs.astral.sh/uv/) installed,
 you should install using [Python](#python).
 
-Otherwise, you can [Download](#download) a binary release for your system.
+[Homebrew](#homebrew) users can install with [Homebrew](#homebrew) (macOS and Linux).
+
+Alternatively, you can [Download](#download) a binary release for your system.
 
 ### Python
 
@@ -108,9 +110,27 @@ Uninstall.
     uv tool uninstall sharex-cli
     ```
 
+### Homebrew
+
+From Homebrew: <https://github.com/cssnr/homebrew-tap>
+
+First, tap the tap? _(and I thought I was bad at nomenclature)_.
+
+```shell
+brew tap cssnr/tap
+```
+
+Then install the formula _(this is the package)_.
+
+```shell
+brew install sharex-cli
+```
+
+For more details see: <https://docs.brew.sh/>
+
 ### Download
 
-Download a Release: <https://github.com/cssnr/sharex-cli/releases/latest>
+From GitHub: <https://github.com/cssnr/sharex-cli/releases/latest>
 
 - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
 - [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)

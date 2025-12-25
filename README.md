@@ -63,6 +63,13 @@ pip install sharex-cli
 uv tool install sharex-cli
 ```
 
+From Homebrew: <https://github.com/cssnr/homebrew-tap>
+
+```shell
+brew tap cssnr/tap
+brew install sharex-cli
+```
+
 From GitHub: https://github.com/cssnr/sharex-cli/releases/latest
 
 - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
