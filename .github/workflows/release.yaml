@@ -4,16 +4,13 @@ on:
   release:
     types: [published]
 
-env:
-  name: "sharex-cli"
-
 jobs:
   pyinstaller:
     name: "PyInstaller"
     uses: ./.github/workflows/pyinstaller.yaml
     secrets: inherit
     with:
-      version-file: "src/sharex/_version.py"
+      version: ${{ github.ref_name }}
     permissions:
       contents: write
 
@@ -22,9 +19,9 @@ jobs:
     uses: ./.github/workflows/build.yaml
     secrets: inherit
     with:
-      version-file: "src/sharex/_version.py"
+      version: ${{ github.ref_name }}
     permissions:
-      contents: read
+      contents: write
 
   publish:
     name: "Publish"
@@ -39,6 +36,9 @@ jobs:
     environment:
       name: "pypi"
       url: "https://pypi.org/p/sharex-cli"
+
+    env:
+      name: "sharex-cli"
 
     steps:
       - name: "Debug"
@@ -104,44 +104,24 @@ jobs:
       contents: write
 
     steps:
-      - name: "Debug"
-        continue-on-error: true
-        run: |
-          echo "github.ref_name: ${{ github.ref_name }}"
-          echo "github.event.release.prerelease: ${{ github.event.release.prerelease }}"
-
       - name: "Debug event.json"
         continue-on-error: true
         run: cat "${GITHUB_EVENT_PATH}"
-
       - name: "Debug CTX github"
         continue-on-error: true
         env:
           GITHUB_CTX: ${{ toJSON(github) }}
         run: echo "$GITHUB_CTX"
-
       - name: "Debug Environment"
         continue-on-error: true
         run: env
 
-      - name: "Download Artifact"
-        uses: actions/download-artifact@v6
-        with:
-          name: "dist"
-          path: "dist"
-
-      - name: "Verify Artifacts"
-        env:
-          path: "dist"
-          tag: ${{ github.ref_name }}
+      - name: "Debug"
+        continue-on-error: true
         run: |
-          ls -lAh "${path}"
-          find "${path}" | grep -- "-${tag}-" > /dev/null
-
-      - name: "Upload Release"
-        uses: cssnr/upload-release-action@latest
-        with:
-          globs: dist/*
+          echo "github.ref_name: ${{ github.ref_name }}"
+          echo "github.event_name: ${{ github.event_name }}"
+          echo "github.event.release.prerelease: ${{ github.event.release.prerelease }}"
 
       - name: "Update Release Notes Action"
         continue-on-error: true

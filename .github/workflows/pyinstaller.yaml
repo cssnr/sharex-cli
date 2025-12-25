@@ -2,15 +2,25 @@ name: "PyInstaller"
 
 on:
   workflow_call:
-    inputs:
+    inputs: &inputs
       version:
         description: "Build Version"
         type: string
-        default: ${{ github.ref_name }}
+        required: true
       version-file:
         description: "Version File"
         type: string
-        default: ""
+        default: "src/*/_version.py"
+      windows-file:
+        description: "Windows Version File"
+        type: string
+        default: ".github/files/win-version.yaml"
+      source-file:
+        description: "Source File"
+        type: string
+        default: "src/app.py"
+  workflow_dispatch:
+    inputs: *inputs
 
 jobs:
   build:
@@ -22,16 +32,18 @@ jobs:
       matrix:
         include:
           # https://github.com/actions/runner-images
-          - os: ubuntu-latest
-            name: linux-amd64
-          - os: windows-latest
-            name: windows-amd64
-            extra-args: --version-file win-version.txt
+          # https://github.com/actions/partner-runner-images
           - os: macos-latest
             name: macos-arm64
-          # https://github.com/actions/partner-runner-images
+          - os: macos-15-intel
+            name: macos-amd64
+          - os: ubuntu-latest
+            name: linux-amd64
           - os: ubuntu-24.04-arm
             name: linux-arm64
+          - os: windows-latest
+            name: windows-amd64
+            extra-args: ${{ inputs.windows-file && '--version-file win-version.txt' || '' }}
 
     steps:
       - name: "Checkout"
@@ -66,19 +78,34 @@ jobs:
           initpy-files: ${{ inputs.version-file }}
 
       - name: "Debug Version"
-        if: ${{ matrix.os == 'windows-latest' }}
         continue-on-error: true
         shell: bash
         run: |
           cat ${{ inputs.version-file }}
 
+      - name: "Version"
+        # Note: packaging is not available on macos-latest by default
+        if: ${{ matrix.os == 'windows-latest' && inputs.windows-file }}
+        id: version
+        shell: python
+        run: |
+          import os
+          from packaging.version import Version
+          version = Version('${{ inputs.version }}')
+          print(f"{version.base_version=}")
+          pre_number = version.pre[1] if version.pre else 0
+          print(f"{pre_number=}")
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"base_version={version.base_version}\n")
+              f.write(f"pre_number={pre_number}\n")
+
       - name: "Windows Version"
-        if: ${{ matrix.os == 'windows-latest' }}
+        if: ${{ matrix.os == 'windows-latest' && inputs.windows-file }}
+        env:
+          version: "${{ steps.version.outputs.base_version }}.${{ steps.version.outputs.pre_number }}"
         shell: bash
         run: |
-          uv run pyivf-make_version --source-format yaml \
-            --metadata-source .github/files/win-version.yaml \
-            --outfile win-version.txt --version "0.${{ inputs.version }}"
+          uvx toml-run win-version -- --version "${{ env.version }}"
 
       - name: "Debug Windows Version"
         if: ${{ matrix.os == 'windows-latest' }}
@@ -90,34 +117,37 @@ jobs:
       - name: "Build"
         shell: bash
         run: |
-          uv run pyinstaller -F -n sharex -i docs/favicon.ico ${{ matrix.extra-args }} src/app.py
+          uvx toml-run pyinstaller -- ${{ matrix.extra-args }}
 
       - name: "List Artifacts"
         continue-on-error: true
         working-directory: dist
         shell: bash
         run: |
-          results="$(file *)"
+          results="$(file -- *)"
           echo "::group::results"
           echo "${results}"
           echo "::endgroup::"
           md="Artifacts: \`${{ matrix.os }}\`\n\`\`\`text\n${results}\n\`\`\`"
           echo -e "${md}" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: "Upload to Actions"
+        if: ${{ github.event_name != 'release' }}
+        uses: actions/upload-artifact@v5
+        with:
+          name: ${{ matrix.name }}
+          path: dist
+
       - name: "Archive Release"
+        if: ${{ github.event_name == 'release' }}
         uses: thedoctor0/zip-release@0.7.5
         with:
           type: zip
           directory: dist
           filename: "${{ matrix.name }}.zip"
 
-      #- name: "Upload to Actions"
-      #  uses: actions/upload-artifact@v5
-      #  with:
-      #    name: ${{ matrix.name }}
-      #    path: "dist"
-
       - name: "Upload Release"
+        if: ${{ github.event_name == 'release' }}
         uses: cssnr/upload-release-action@latest
         with:
           globs: dist/*.zip

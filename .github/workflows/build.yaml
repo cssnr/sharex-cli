@@ -2,15 +2,15 @@ name: "Build Package"
 
 on:
   workflow_call:
-    inputs:
+    inputs: &inputs
       version:
         description: "Build Version"
         type: string
-        default: ${{ github.ref_name }}
+        required: true
       version-file:
         description: "Version File"
         type: string
-        default: ""
+        default: "src/*/_version.py"
       name:
         description: "Artifact Name"
         type: string
@@ -19,6 +19,8 @@ on:
         description: "Build Path"
         type: string
         default: "dist"
+  workflow_dispatch:
+    inputs: *inputs
 
 jobs:
   build:
@@ -36,13 +38,11 @@ jobs:
       - name: "Debug event.json"
         continue-on-error: true
         run: cat "${GITHUB_EVENT_PATH}"
-
       - name: "Debug CTX github"
         continue-on-error: true
         env:
           GITHUB_CTX: ${{ toJSON(github) }}
         run: echo "$GITHUB_CTX"
-
       - name: "Debug Environment"
         continue-on-error: true
         run: env
@@ -76,9 +76,8 @@ jobs:
       - name: "List Artifacts"
         continue-on-error: true
         working-directory: ${{ inputs.path }}
-        shell: bash
         run: |
-          results="$(ls -lAhR .)"
+          results="$(tree .)"
           echo "::group::results"
           echo "${results}"
           echo "::endgroup::"
@@ -90,6 +89,12 @@ jobs:
         with:
           name: ${{ inputs.name }}
           path: ${{ inputs.path }}
+
+      - name: "Upload Release"
+        if: ${{ github.event_name == 'release' }}
+        uses: cssnr/upload-release-action@latest
+        with:
+          globs: dist/*
 
       - name: "Send Failure Notification"
         if: ${{ failure() }}

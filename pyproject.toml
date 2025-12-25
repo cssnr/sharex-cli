@@ -123,8 +123,8 @@ extend-exclude = [".github"]
 select = ["E4", "E7", "E9", "F", "B", "Q"]
 
 [tool.scripts]
-version = "pyivf-make_version --source-format yaml --metadata-source .github/files/win-version.yaml --outfile win-version.txt"
-install = "pyinstaller -F -n sharex -i docs/favicon.ico src/app.py"
+win-version = "uv run pyivf-make_version --source-format yaml --metadata-source .github/files/win-version.yaml --outfile win-version.txt"
+pyinstaller = "uv run pyinstaller -F -n sharex -i docs/favicon.ico src/app.py"
 test = ["coverage run -m pytest", "coverage report -m"]
 build = "uv run hatch build"
 predocs = "rm -rf .cache site"
@@ -140,6 +140,7 @@ run validate
 run yamllint
 tombi lint .
 ty check -v .
+uv lock --check
 """
 bandit = "bandit -c pyproject.toml -r ."
 mypy = "mypy ."

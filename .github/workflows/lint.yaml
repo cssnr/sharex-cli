@@ -30,13 +30,11 @@ jobs:
       - name: "Debug event.json"
         continue-on-error: true
         run: cat "${GITHUB_EVENT_PATH}"
-
       - name: "Debug CTX github"
         continue-on-error: true
         env:
           GITHUB_CTX: ${{ toJSON(github) }}
         run: echo "$GITHUB_CTX"
-
       - name: "Debug Environment"
         continue-on-error: true
         run: env
@@ -119,14 +117,6 @@ jobs:
         uses: cssnr/actionlint-action@master
         with:
           shellcheck_opts: -e SC2012
-
-      #- name: "Checkout Test Files"
-      #  if: ${{ !cancelled() }}
-      #  id: checkout
-      #  uses: actions/checkout@v6
-      #  with:
-      #    repository: smashedr/test-files
-      #    path: tests/files
 
       - name: "pytest"
         if: ${{ !cancelled() }}
