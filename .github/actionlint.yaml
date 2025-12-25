@@ -2,6 +2,7 @@ paths:
   .github/workflows/**/*.{yml,yaml}:
     ignore:
       - '"paths" section must be sequence node but got alias node with "" tag'
+      - '"inputs" section is alias node but mapping node is expected'
   .github/workflows/pyinstaller.yaml:
     ignore:
       - "shellcheck reported issue in this script"
