@@ -29,14 +29,15 @@ sharex [OPTIONS] [FILES]...  # (1)!
 
 ## Install
 
-If you have [Python :lucide-arrow-up-right:](https://www.python.org/downloads/) or [astral-sh/uv :lucide-arrow-up-right:](https://docs.astral.sh/uv/) installed,
-you should install using [Python](#python).
+[Python](#python) is recommended if you have
+[Python :lucide-arrow-up-right:](https://www.python.org/downloads/) or
+[astral-sh/uv :lucide-arrow-up-right:](https://docs.astral.sh/uv/) installed.
 
-[Homebrew](#homebrew) users can install with [Homebrew](#homebrew) (macOS and Linux).
+Linux and macOS users can install with [Homebrew](#homebrew).
 
-Alternatively, you can [Download](#download) a binary release for your system.
+Alternatively, you can [Download](#download) a binary release.
 
-### Python
+### :simple-pypi: Python
 
 From PyPI: <https://pypi.org/p/sharex-cli>
 
@@ -110,25 +111,31 @@ Uninstall.
     uv tool uninstall sharex-cli
     ```
 
-### Homebrew
+### :simple-homebrew: Homebrew
 
-From Homebrew: <https://github.com/cssnr/homebrew-tap>
-
-First, tap the tap? _(and I thought I was bad at nomenclature)_.
+Install the formula _(package)_.
 
 ```shell
-brew tap cssnr/tap
+brew install cssnr/tap/sharex-cli
 ```
 
-Then install the formula _(this is the package)_.
+Upgrade.
 
 ```shell
-brew install sharex-cli
+brew update && brew install sharex-cli
+```
+
+Uninstall.
+
+```shell
+brew uninstall sharex-cli
 ```
 
 For more details see: <https://docs.brew.sh/>
 
-### Download
+Tap Source: <https://github.com/cssnr/homebrew-tap>
+
+### :lucide-cloud-download: Download
 
 From GitHub: <https://github.com/cssnr/sharex-cli/releases/latest>
 

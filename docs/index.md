@@ -39,11 +39,7 @@ Upload any file, multiple files, directories, use globs, create archives and muc
 === "brew"
 
     ```shell
-    brew tap cssnr/tap
-    ```
-
-    ```shell
-    brew install sharex-cli
+    brew install cssnr/tap/sharex-cli
     ```
 
 === "download"

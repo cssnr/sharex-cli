@@ -4,9 +4,14 @@ on:
   release:
     types: [published]
 
+env:
+  name: "sharex-cli"
+  download-url: "https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/sharex_cli-${{ github.ref_name }}.tar.gz"
+
 jobs:
   pyinstaller:
     name: "PyInstaller"
+    if: ${{ !github.event.release.prerelease }}
     uses: ./.github/workflows/pyinstaller.yaml
     secrets: inherit
     with:
@@ -36,9 +41,6 @@ jobs:
     environment:
       name: "pypi"
       url: "https://pypi.org/p/sharex-cli"
-
-    env:
-      name: "sharex-cli"
 
     steps:
       - name: "Debug"
@@ -93,6 +95,34 @@ jobs:
           description: |
             - ${{ format('https://pypi.org/p/{0}/{1}', env.name, github.ref_name) }}
             - ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}
+
+  homebrew:
+    name: "Homebrew"
+    if: ${{ !github.event.release.prerelease }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [publish, pyinstaller]
+    steps:
+      - name: "Homebrew Action"
+        uses: cssnr/homebrew-action@master
+        with:
+          version: ${{ github.ref_name }}
+          repo: cssnr/homebrew-tap
+          token: ${{ secrets.HOMEBREW_PAT }}
+
+      #- name: "Homebrew Formula Action"
+      #  uses: mislav/bump-homebrew-formula-action@v3
+      #  env:
+      #    COMMITTER_TOKEN: ${{ secrets.HOMEBREW_PAT }}
+      #  with:
+      #    formula-name: toml-run.rb
+      #    tag-name: ${{ github.ref_name }}
+      #    download-url: ${{ env.download-url }}
+      #    #download-sha256: 64be704a875d2a59753d80ee8a533c3fe183e3f06807ff7dc2232938ccb01549
+      #    homebrew-tap: "smashedr/homebrew-test"
+      #    create-pullrequest: false
+      #    create-branch: false
+      #    commit-message: "Bump {{formulaName}} to {{version}}"
 
   release:
     name: "Release"

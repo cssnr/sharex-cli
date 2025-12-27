@@ -7,7 +7,7 @@ on:
     paths-ignore:
       - ".gitattributes"
       - ".gitignore"
-      - "*.ps1"
+      - ".prettierignore"
   pull_request:
 
 concurrency:

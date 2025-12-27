@@ -125,25 +125,25 @@ select = ["E4", "E7", "E9", "F", "B", "Q"]
 [tool.scripts]
 win-version = "uv run pyivf-make_version --source-format yaml --metadata-source .github/files/win-version.yaml --outfile win-version.txt"
 pyinstaller = "uv run pyinstaller -F -n sharex -i docs/favicon.ico src/app.py"
-test = ["coverage run -m pytest", "coverage report -m"]
+test = ["uv run coverage run -m pytest", "uv run coverage report -m"]
 build = "uv run hatch build"
 predocs = "rm -rf .cache site"
 docs = "zensical serve --open"
 docs-build = "zensical build --clean"
-format = ["black .", "tombi format .", "ruff format ."]
+format = ["uv run black .", "uv run tombi format .", "uv run ruff format ."]
 lint = """
-black --check .
+uv run black --check .
 run bandit
 run mypy
 run ruff
 run validate
 run yamllint
-tombi lint .
-ty check -v .
+uv run tombi lint .
+uv run ty check -v .
 uv lock --check
 """
-bandit = "bandit -c pyproject.toml -r ."
-mypy = "mypy ."
-ruff = "ruff check ."
-validate = "validate-pyproject pyproject.toml"
-yamllint = "yamllint -c .github/yamllint.yaml ."
+bandit = "uv run bandit -c pyproject.toml -r ."
+mypy = "uv run mypy ."
+ruff = "uv run ruff check ."
+validate = "uv run validate-pyproject pyproject.toml"
+yamllint = "uv run yamllint -c .github/yamllint.yaml ."

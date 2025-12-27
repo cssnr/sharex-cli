@@ -66,8 +66,7 @@ uv tool install sharex-cli
 From Homebrew: <https://github.com/cssnr/homebrew-tap>
 
 ```shell
-brew tap cssnr/tap
-brew install sharex-cli
+brew install cssnr/tap/sharex-cli
 ```
 
 From GitHub: https://github.com/cssnr/sharex-cli/releases/latest

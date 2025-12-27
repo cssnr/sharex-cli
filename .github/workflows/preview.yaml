@@ -14,8 +14,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  preview:
-    name: "Preview"
+  build:
+    name: "Build"
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -28,7 +28,7 @@ jobs:
   deploy:
     name: "Deploy"
     uses: cssnr/workflows/.github/workflows/deploy-static.yaml@master
-    needs: [preview]
+    needs: [build]
     with:
       name: "preview"
       url: "https://dev-static.cssnr.com/sharex-cli"
