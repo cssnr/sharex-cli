@@ -8,8 +8,6 @@ icon: lucide/square-terminal
 
 With the CLI you can easily upload any files or folders with globs or as an archive.
 
-To get started see the [Install](#install), [Configure](#configure) and [Upload](#upload) guides.
-
 To view the source code, see the [cli.py :lucide-arrow-up-right:](https://github.com/cssnr/sharex-cli/blob/master/src/sharex/cli.py) on GitHub.
 
 To use run the `sharex` command from your terminal.
@@ -135,7 +133,7 @@ For more details see: <https://docs.brew.sh/>
 
 Tap Source: <https://github.com/cssnr/homebrew-tap>
 
-### :lucide-cloud-download: Download
+### :lucide-download: Download
 
 From GitHub: <https://github.com/cssnr/sharex-cli/releases/latest>
 

@@ -60,7 +60,7 @@ If you run into any issues or have any questions, [support](support.md) is avail
 
 **:lucide-sparkles: [Features](#features)**  
 **:lucide-plane-takeoff: [Quick Start](#quick-start)**  
-**:lucide-cloud-upload: [Support](#support)**
+**:lucide-server: [Server Support](#server-support)**
 
 ## :lucide-sparkles: Features
 
@@ -141,7 +141,7 @@ print(f"{url=}")
 
 :fontawesome-brands-python: View the [Module Documentation](module.md) for more details.
 
-## :lucide-cloud-upload: Server Support
+## :lucide-server: Server Support
 
 Supports the following ShareX [Custom Uploader :lucide-arrow-up-right:](https://getsharex.com/docs/custom-uploader) `*.sxcu` configurations.
 
