@@ -42,15 +42,17 @@ Upload any file, multiple files, directories, use globs, create archives and muc
     brew install cssnr/tap/sharex-cli
     ```
 
-=== "download"
+=== "release"
 
-    - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
-    - [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)
-    - [macos-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-arm64.zip)
-    - [linux-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip)
-    - [linux-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip)
+    ```shell
+    curl https://i.jpillora.com/cssnr/sharex-cli! | bash  # (1)!
+    ```
 
-    To install the binary see the [Download](cli.md#download) section.
+    1.  Note: the `!` installs into `/usr/local/bin`.
+
+        Omit the `!` to use the current directory.
+
+        See [jpillora/installer :lucide-arrow-up-right:](https://github.com/jpillora/installer) for more details.
 
 See the [Quick Start](#quick-start) section to get started...
 
@@ -91,15 +93,23 @@ or [GitHub :lucide-arrow-up-right:](https://github.com/cssnr/sharex-cli/releases
     uv tool install sharex-cli
     ```
 
-=== "download"
+=== "brew"
 
-    - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
-    - [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)
-    - [macos-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-arm64.zip)
-    - [linux-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip)
-    - [linux-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip)
+    ```shell
+    brew install cssnr/tap/sharex-cli
+    ```
 
-    To install the binary see the [Download](cli.md#download) section.
+=== "release"
+
+    ```shell
+    curl https://i.jpillora.com/cssnr/sharex-cli! | bash  # (1)!
+    ```
+
+    1.  Note: the `!` installs into `/usr/local/bin`.
+
+        Omit the `!` to use the current directory.
+
+        See [jpillora/installer :lucide-arrow-up-right:](https://github.com/jpillora/installer) for more details.
 
 See the [Install](cli.md#install) guide for more options.
 

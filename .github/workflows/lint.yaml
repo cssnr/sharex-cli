@@ -9,6 +9,7 @@ on:
       - ".gitignore"
       - ".prettierignore"
   pull_request:
+    branches: [master]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -63,6 +64,12 @@ jobs:
           uv pip list
           echo "::endgroup::"
 
+      - name: "astral-sh/ruff"
+        if: ${{ !cancelled() }}
+        uses: astral-sh/ruff-action@v3
+        with:
+          version: latest
+
       - name: "astral-sh/ty"
         if: ${{ !cancelled() }}
         run: |
@@ -79,22 +86,27 @@ jobs:
       - name: "mypy"
         if: ${{ !cancelled() }}
         run: |
-          uv run mypy src
+          uvx toml-run mypy
 
       - name: "bandit"
         if: ${{ !cancelled() }}
         run: |
-          uv run bandit -c pyproject.toml -r src
+          uvx toml-run bandit
 
       - name: "validate-pyproject"
         if: ${{ !cancelled() }}
         run: |
-          uv run validate-pyproject pyproject.toml
+          uvx toml-run validate
 
       - name: "tombi"
         if: ${{ !cancelled() }}
         run: |
           uv run tombi lint
+
+      - name: "yamllint"
+        if: ${{ !cancelled() }}
+        run: |
+          uvx toml-run yamllint
 
       - name: "prettier"
         if: ${{ !cancelled() }}
@@ -104,17 +116,9 @@ jobs:
           echo "::endgroup::"
           npx prettier --check .
 
-      - name: "yamllint"
-        if: ${{ !cancelled() }}
-        run: |
-          echo "::group::List Files"
-          yamllint -c .github/yamllint.yaml --list-files .
-          echo "::endgroup::"
-          yamllint -c .github/yamllint.yaml .
-
       - name: "actionlint"
         if: ${{ !cancelled() }}
-        uses: cssnr/actionlint-action@master
+        uses: cssnr/actionlint-action@v1
         with:
           shellcheck_opts: -e SC2012
 

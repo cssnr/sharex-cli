@@ -19,6 +19,16 @@ jobs:
     permissions:
       contents: write
 
+  #snapcraft:
+  #  name: "Snapcraft"
+  #  if: ${{ !github.event.release.prerelease }}
+  #  uses: ./.github/workflows/snapcraft.yaml
+  #  secrets: inherit
+  #  with:
+  #    version: ${{ github.ref_name }}
+  #  permissions:
+  #    contents: write
+
   build:
     name: "Build"
     uses: ./.github/workflows/build.yaml
@@ -115,11 +125,11 @@ jobs:
       #  env:
       #    COMMITTER_TOKEN: ${{ secrets.HOMEBREW_PAT }}
       #  with:
-      #    formula-name: toml-run.rb
+      #    formula-name: sharex-cli.rb
       #    tag-name: ${{ github.ref_name }}
       #    download-url: ${{ env.download-url }}
       #    #download-sha256: 64be704a875d2a59753d80ee8a533c3fe183e3f06807ff7dc2232938ccb01549
-      #    homebrew-tap: "smashedr/homebrew-test"
+      #    homebrew-tap: "cssnr/homebrew-tap"
       #    create-pullrequest: false
       #    create-branch: false
       #    commit-message: "Bump {{formulaName}} to {{version}}"

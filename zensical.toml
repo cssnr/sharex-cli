@@ -144,7 +144,7 @@ toggle.name = "Switch to system preference"
 # ----------------------------------------------------------------------------
 [project.theme.icon]
 repo = "fontawesome/brands/github"
-admonition = { abstract = "lucide/square-terminal" }
+# admonition = { abstract = "lucide/square-terminal" }
 
 # ----------------------------------------------------------------------------
 # The "extra" section contains miscellaneous settings.

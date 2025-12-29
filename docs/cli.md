@@ -27,13 +27,9 @@ sharex [OPTIONS] [FILES]...  # (1)!
 
 ## Install
 
-[Python](#python) is recommended if you have
-[Python :lucide-arrow-up-right:](https://www.python.org/downloads/) or
-[astral-sh/uv :lucide-arrow-up-right:](https://docs.astral.sh/uv/) installed.
-
-Linux and macOS users can install with [Homebrew](#homebrew).
-
-Alternatively, you can [Download](#download) a binary release.
+- [Python](#python) - Recommended if using [Python :lucide-arrow-up-right:](https://www.python.org/downloads/) or [astral-sh/uv :lucide-arrow-up-right:](https://docs.astral.sh/uv/)
+- [Homebrew](#homebrew) - Currently downloads a binary release
+- [Binary Release](#binary-release) - Download a GitHub binary release
 
 ### :simple-pypi: Python
 
@@ -111,7 +107,7 @@ Uninstall.
 
 ### :simple-homebrew: Homebrew
 
-Install the formula _(package)_.
+From Homebrew Tap: <https://github.com/cssnr/homebrew-tap>
 
 ```shell
 brew install cssnr/tap/sharex-cli
@@ -131,21 +127,37 @@ brew uninstall sharex-cli
 
 For more details see: <https://docs.brew.sh/>
 
-Tap Source: <https://github.com/cssnr/homebrew-tap>
-
-### :lucide-download: Download
+### :lucide-download: Binary Release
 
 From GitHub: <https://github.com/cssnr/sharex-cli/releases/latest>
 
-- [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
-- [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)
-- [macos-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-arm64.zip)
-- [linux-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip)
-- [linux-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip)
+```shell
+curl https://i.jpillora.com/cssnr/sharex-cli! | bash  # (1)!
+```
 
-To install a binary release, unzip the archive and place the file in your `PATH`.
+1.  Note: the `!` installs into `/usr/local/bin`.
 
-Unix: the file should already be executable, if not run `chmod +x sharex`.
+    Omit this to use the current directory.
+
+    See [jpillora/installer :lucide-arrow-up-right:](https://github.com/jpillora/installer) for more details.
+
+Uninstall.
+
+```shell
+rm -f /usr/local/bin/sharex  # (1)!
+```
+
+1.  Or the path to where you installed it.
+
+??? abstract "Available Releases"
+
+    - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
+    - [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)
+    - [macos-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-arm64.zip)
+    - [linux-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip)
+    - [linux-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip)
+
+    To manually install a release, unzip the archive and place the file in your `PATH`.
 
 If you need additional help, [support](support.md) is available.
 

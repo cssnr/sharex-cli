@@ -1,0 +1,46 @@
+# https://documentation.ubuntu.com/snapcraft/stable/reference/project-file/snapcraft-yaml/#reference-snapcraft-yaml
+name: sharex
+title: ShareX Command Line Interface Uploader
+version: "0.0.1"
+license: MIT
+summary: CLI to Upload Files to a ShareX Server using a ShareX Custom Uploader file.
+description: |
+  Command Line Interface to Upload Files to a ShareX Server using a ShareX Custom Uploader (.sxcu) configuration file.
+
+  To get started run the `sharex` command from your terminal.
+
+  Snap's are unable to read files outside of your home directory.
+  To use this outside of your home directory, install using pip or brew instead.
+
+  If you run into any issues or have any questions, support is available.
+
+base: core24
+grade: stable
+confinement: strict
+
+source-code: [https://github.com/cssnr/sharex-cli]
+contact: [https://cssnr.github.io/sharex-cli/support]
+website: [https://cssnr.github.io/sharex-cli]
+issues: [https://github.com/cssnr/sharex-cli/issues]
+donation: [https://ko-fi.com/cssnr]
+
+icon: docs/assets/images/logo.svg
+
+platforms:
+  amd64:
+    build-on: [amd64]
+    build-for: [amd64]
+  arm64:
+    build-on: [arm64]
+    build-for: [arm64]
+
+parts:
+  sharex:
+    plugin: python
+    source: .
+
+apps:
+  sharex:
+    command: bin/sharex
+    plugs:
+      - home
