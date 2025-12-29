@@ -8,6 +8,22 @@ icon: fontawesome/brands/python
 
 Python projects can import the module directly.
 
+First add the package to your project.
+
+From PyPI: <https://pypi.org/p/sharex-cli>
+
+=== "pip"
+
+    ```shell
+    pip install --group dev sharex-cli
+    ```
+
+=== "uv"
+
+    ```shell
+    uv add --dev sharex-cli
+    ```
+
 The `config` object must be a dictionary loaded from the ShareX `.sxcu` JSON.
 
 The `get_config` method loads this from a file or environment variable, or returns None.
