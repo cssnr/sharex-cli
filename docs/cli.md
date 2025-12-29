@@ -149,7 +149,9 @@ rm -f /usr/local/bin/sharex  # (1)!
 
 1.  Or the path to where you installed it.
 
-??? abstract "Available Releases"
+!!! quote "Manual Download"
+
+    If `bash` is unavailable, download a release for your system.
 
     - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
     - [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)
@@ -157,7 +159,7 @@ rm -f /usr/local/bin/sharex  # (1)!
     - [linux-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip)
     - [linux-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip)
 
-    To manually install a release, unzip the archive and place the file in your `PATH`.
+    After downloading, unzip the archive and move the file to `/usr/local/bin` or anywhere in `$PATH`.
 
 If you need additional help, [support](support.md) is available.
 
@@ -312,24 +314,24 @@ $ sharex --help
 
  Files: A File, Multiple Files or a Directory.
 
-┌─ Arguments ──────────────────────────────────────────────────────────────────────┐
-│   files      [FILES]...  Files or Directory...                                   │
-└──────────────────────────────────────────────────────────────────────────────────┘
-┌─ Options ────────────────────────────────────────────────────────────────────────┐
-│ --name     -n                    File Name (sent with upload).                   │
-│ --glob     -g                    Directory Files Glob (use ** to recurse).       │
-│                                  [default: *]                                    │
-│ --archive  -a                    Directory Create Archive (no glob support).     │
-│ --yes      -y                    Answer YES to Prompts. [env var: SHAREX_YES]    │
-│ --copy     -c  --no-copy    -nc  Copy URL to Clipboard. [env var: SHAREX_COPY]   │
-│                                  [default: copy]                                 │
-│ --launch   -l  --no-launch  -nl  Launch URL in Browser. [env var: SHAREX_LAUNCH] │
-│                                  [default: launch]                               │
-│ --verbose  -v                    Verbose Output. [env var: SHAREX_VERBOSE]       │
-│ --config   -C                    Update Configuration.                           │
-│ --version  -V                    Show Installed Version.                         │
-│ --help     -h                    Show this message and exit.                     │
-└──────────────────────────────────────────────────────────────────────────────────┘
+╭─ Arguments ────────────────────────────────────────────────────────────────────────╮
+│   files      [FILES]...  Files or Directory...                                     │
+╰────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Options ──────────────────────────────────────────────────────────────────────────╮
+│ --name     -n                      File Name (sent with upload).                   │
+│ --glob     -g                      Directory Files Glob (use ** to recurse).       │
+│                                    [default: *]                                    │
+│ --archive  -a                      Directory Create Archive (no glob support).     │
+│ --yes      -y                      Answer YES to Prompts. [env var: SHAREX_YES]    │
+│ --copy     -c  --no-copy    -nc    Copy URL to Clipboard. [env var: SHAREX_COPY]   │
+│                                    [default: copy]                                 │
+│ --launch   -l  --no-launch  -nl    Launch URL in Browser. [env var: SHAREX_LAUNCH] │
+│                                    [default: launch]                               │
+│ --verbose  -v                      Verbose Output. [env var: SHAREX_VERBOSE]       │
+│ --config   -C                      Update Configuration.                           │
+│ --version  -V                      Show Installed Version.                         │
+│ --help     -h                      Show this message and exit.                     │
+╰────────────────────────────────────────────────────────────────────────────────────╯
 ```
 
 !!! tip "In the terminal output is scaled and displays properly."
