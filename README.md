@@ -69,13 +69,20 @@ From Homebrew: <https://github.com/cssnr/homebrew-tap>
 brew install cssnr/tap/sharex-cli
 ```
 
-From GitHub: https://github.com/cssnr/sharex-cli/releases/latest
+From GitHub: <https://github.com/cssnr/sharex-cli/releases/latest>
 
-- [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
-- [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)
-- [macos-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-arm64.zip)
-- [linux-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip)
-- [linux-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip)
+```shell
+curl https://i.jpillora.com/cssnr/sharex-cli! | bash
+```
+
+See [jpillora/installer](https://github.com/jpillora/installer) for more details.  
+Alternatively, you can manually download a release for your system.
+
+- [Windows x86_64](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip) _amd64_
+- [macOS Apple Intel](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip) _amd64_
+- [macOS Apple Silicon](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-arm64.zip) _arm64_
+- [Linux x86_64](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip) _amd64_
+- [Linux ARM](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip) _arm64_
 
 [![View Install Guide](https://img.shields.io/badge/view_install_guide-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/sharex-cli/cli/#install)
 

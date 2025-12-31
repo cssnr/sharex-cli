@@ -33,7 +33,8 @@ sharex [OPTIONS] [FILES]...  # (1)!
 
 ### :simple-pypi: Python
 
-From PyPI: <https://pypi.org/p/sharex-cli>
+From PyPI: <https://pypi.org/p/sharex-cli>  
+_Recommended_
 
 === "pip"
 
@@ -107,7 +108,7 @@ Uninstall.
 
 ### :simple-homebrew: Homebrew
 
-From Homebrew Tap: <https://github.com/cssnr/homebrew-tap>
+From Homebrew: <https://github.com/cssnr/homebrew-tap>
 
 ```shell
 brew install cssnr/tap/sharex-cli
@@ -141,23 +142,33 @@ curl https://i.jpillora.com/cssnr/sharex-cli! | bash  # (1)!
 
     See [jpillora/installer :lucide-arrow-up-right:](https://github.com/jpillora/installer) for more details.
 
+Upgrade.
+
+```shell
+curl https://i.jpillora.com/cssnr/sharex-cli! | bash  # (1)!
+```
+
+1.  To upgrade, install the latest release.
+
 Uninstall.
 
 ```shell
 rm -f /usr/local/bin/sharex  # (1)!
 ```
 
-1.  Or the path to where you installed it.
+1.  If you used the installation script above.
+
+[![GitHub Release](https://img.shields.io/github/v/release/cssnr/sharex-cli?style=for-the-badge&logo=verizon&logoColor=brightgreen&label=latest%20version&color=blue)](https://github.com/cssnr/sharex-cli/releases)
 
 !!! quote "Manual Download"
 
     If `bash` is unavailable, download a release for your system.
 
-    - [windows-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip)
-    - [macos-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip)
-    - [macos-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-arm64.zip)
-    - [linux-amd64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip)
-    - [linux-arm64.zip](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip)
+    - [Windows x86_64](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip) _amd64_
+    - [macOS Apple Intel](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip) _amd64_
+    - [macOS Apple Silicon](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-arm64.zip) _arm64_
+    - [Linux x86_64](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-amd64.zip) _amd64_
+    - [Linux ARM](https://github.com/cssnr/sharex-cli/releases/latest/download/linux-arm64.zip) _arm64_
 
     After downloading, unzip the archive and move the file to `/usr/local/bin` or anywhere in `$PATH`.
 

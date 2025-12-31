@@ -48,11 +48,7 @@ Upload any file, multiple files, directories, use globs, create archives and muc
     curl https://i.jpillora.com/cssnr/sharex-cli! | bash  # (1)!
     ```
 
-    1.  Note: the `!` installs into `/usr/local/bin`.
-
-        Omit the `!` to use the current directory.
-
-        See [jpillora/installer :lucide-arrow-up-right:](https://github.com/jpillora/installer) for more details.
+    1.  For more details see the [Install Guide](cli.md#binary-release).
 
 See the [Quick Start](#quick-start) section to get started...
 
@@ -78,7 +74,8 @@ If you run into any issues or have any questions, [support](support.md) is avail
 
 ## :lucide-plane-takeoff: Quick Start
 
-First, install from [PyPI :lucide-arrow-up-right:](https://pypi.org/p/sharex-cli)
+First, install from [PyPI :lucide-arrow-up-right:](https://pypi.org/p/sharex-cli),
+[Homebrew :lucide-arrow-up-right:](https://github.com/cssnr/homebrew-tap?tab=readme-ov-file#readme)
 or [GitHub :lucide-arrow-up-right:](https://github.com/cssnr/sharex-cli/releases/latest).
 
 === "pip"
@@ -111,7 +108,7 @@ or [GitHub :lucide-arrow-up-right:](https://github.com/cssnr/sharex-cli/releases
 
         See [jpillora/installer :lucide-arrow-up-right:](https://github.com/jpillora/installer) for more details.
 
-See the [Install](cli.md#install) guide for more options.
+:lucide-arrow-right: See the [Install](cli.md#install) guide for more options.
 
 Next, download your server's ShareX [Custom Uploader :lucide-arrow-up-right:](https://getsharex.com/docs/custom-uploader) `*.sxcu` configuration.
 
@@ -121,7 +118,7 @@ Using the `--config` option you can enter a file path or open a text editor.
 sharex --config
 ```
 
-See the [Configure](cli.md#configure) guide for more details.
+:lucide-arrow-right: See the [Configure](cli.md#configure) guide for more details.
 
 Finally, upload a file, multiple files, or a directory.
 
@@ -129,9 +126,11 @@ Finally, upload a file, multiple files, or a directory.
 sharex screenshot.jpg
 ```
 
-See the [Upload](cli.md#upload) guide for more examples.
+:lucide-arrow-right: See the [Upload](cli.md#upload) guide for more examples.
 
-[:lucide-square-terminal: View Uploading Guide](cli.md#upload){ .md-button .md-button--primary }
+&nbsp;
+
+[:lucide-square-terminal: Command Line Reference](cli.md){ .md-button .md-button--primary }
 
 &nbsp;
 
@@ -149,7 +148,7 @@ print(f"{url=}")
 
 1. ShareX Custom Uploader Config JSON.
 
-:fontawesome-brands-python: View the [Module Documentation](module.md) for more details.
+View the [Module Documentation](module.md) for more details.
 
 ## :lucide-server: Server Support
 
