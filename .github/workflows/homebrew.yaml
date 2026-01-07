@@ -24,36 +24,37 @@ jobs:
       contents: read
 
     steps:
-      - name: "PyPi URL"
-        id: url
-        uses: cssnr/web-request-action@master
-        with:
-          method: "GET"
-          url: "https://pypi.org/pypi/${{ inputs.name }}/${{ inputs.version }}/json"
-          path: '$.urls[?(@.packagetype=="sdist")]'
+      #- name: "PyPi URL"
+      #  id: url
+      #  uses: cssnr/web-request-action@master
+      #  with:
+      #    method: "GET"
+      #    url: "https://pypi.org/pypi/${{ inputs.name }}/${{ inputs.version }}/json"
+      #    path: '$.urls[?(@.packagetype=="sdist")]'
 
-      - name: "Verify URL"
-        env:
-          url: ${{ fromJSON(steps.url.outputs.result).url }}
-          sha256: ${{ fromJSON(steps.url.outputs.result).digests.sha256 }}
-        run: |
-          echo "url: ${url}"
-          echo "sha256: ${sha256}"
-          if [ -z "${url}" ];then
-            echo "Missing URL"
-            exit 1
-          fi
-          if [ -z "${sha256}" ];then
-            echo "Missing SHA256"
-            exit 1
-          fi
+      #- name: "Verify URL"
+      #  env:
+      #    url: ${{ fromJSON(steps.url.outputs.result).url }}
+      #    sha256: ${{ fromJSON(steps.url.outputs.result).digests.sha256 }}
+      #  run: |
+      #    echo "url: ${url}"
+      #    echo "sha256: ${sha256}"
+      #    if [ -z "${url}" ];then
+      #      echo "Missing URL"
+      #      exit 1
+      #    fi
+      #    if [ -z "${sha256}" ];then
+      #      echo "Missing SHA256"
+      #      exit 1
+      #    fi
 
       - name: "Homebrew Action"
         id: homebrew
         uses: cssnr/homebrew-action@master
         with:
-          url: ${{ fromJSON(steps.url.outputs.result).url }}
-          sha256: ${{ fromJSON(steps.url.outputs.result).digests.sha256 }}
+          #url: ${{ fromJSON(steps.url.outputs.result).url }}
+          #sha256: ${{ fromJSON(steps.url.outputs.result).digests.sha256 }}
+          version: ${{ inputs.version }}
           repo: cssnr/homebrew-tap
           formula: ${{ inputs.name }}
           message: Bump ${{ inputs.name }} to ${{ inputs.version }}
