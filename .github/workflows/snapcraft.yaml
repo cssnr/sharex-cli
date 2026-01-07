@@ -1,4 +1,4 @@
-name: "Build Package"
+name: "Snapcraft"
 
 on:
   workflow_call:
@@ -11,25 +11,25 @@ on:
         description: "Version File"
         type: string
         default: "src/*/_version.py"
-      name:
-        description: "Artifact Name"
+      snap-file:
+        description: "Snap File"
         type: string
-        default: "dist"
-      path:
-        description: "Build Path"
-        type: string
-        default: "dist"
+        default: "snap/snapcraft.yaml"
   workflow_dispatch:
     inputs: *inputs
 
 jobs:
-  build:
-    name: "Build"
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
+  snapcraft:
+    name: "Snapcraft - ${{ matrix.os }}"
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, ubuntu-24.04-arm]
 
     permissions:
-      contents: write
+      contents: read
 
     steps:
       - name: "Checkout"
@@ -47,58 +47,64 @@ jobs:
         continue-on-error: true
         run: env
 
-      - name: "Install UV"
-        uses: astral-sh/setup-uv@61cb8a9741eeb8a550a1b8544337180c0fc8476b # v7.2.0
-
-      - name: "Install Python 3.13"
-        run: |
-          uv python install 3.13
-
-      - name: "Install"
-        run: |
-          uv sync --locked --all-extras --dev
-
       - name: "Update Version"
-        if: ${{ inputs.version-file }}
         uses: justalemon/VersionPatcher@master
         with:
           version: ${{ inputs.version }}
           initpy-files: ${{ inputs.version-file }}
 
       - name: "Debug Version"
-        if: ${{ inputs.version-file }}
         continue-on-error: true
         run: |
           cat ${{ inputs.version-file }}
 
-      - name: "Build"
-        run: |
-          uv run hatch build
+      # https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/configure-package-information/#configure-package-information
+      - name: "Update Snap Version"
+        uses: mikefarah/yq@master
+        with:
+          cmd: yq -i '.version = "${{ inputs.version }}"' '${{ inputs.snap-file }}'
 
-      - name: "List Artifacts"
+      - name: "Debug Snap Version"
         continue-on-error: true
-        working-directory: ${{ inputs.path }}
         run: |
-          results="$(tree .)"
+          cat "${{ inputs.snap-file }}"
+
+      - name: "Snap Build"
+        id: build
+        uses: snapcore/action-build@3bdaa03e1ba6bf59a65f84a751d943d549a54e79 # v1.3.0
+        with:
+          snapcraft-args: "--verbosity verbose"
+
+      - name: "Stat Snap"
+        continue-on-error: true
+        run: |
+          results="$(stat ${{ steps.build.outputs.snap }})"
           echo "::group::results"
           echo "${results}"
           echo "::endgroup::"
-          md="Artifacts: \`${{ inputs.path }}\`\n\`\`\`text\n${results}\n\`\`\`"
+          md="Snap: \`${{ steps.build.outputs.snap }}\`\n\`\`\`text\n${results}\n\`\`\`"
           echo -e "${md}" >> "$GITHUB_STEP_SUMMARY"
 
       - name: "Upload to Actions"
+        if: ${{ github.event_name != 'release' }}
         uses: actions/upload-artifact@v5
         with:
-          name: ${{ inputs.name }}
-          path: ${{ inputs.path }}
+          name: ${{ matrix.os }}
+          path: ${{ steps.build.outputs.snap }}
 
       - name: "Upload Release"
         if: ${{ github.event_name == 'release' }}
         uses: cssnr/upload-release-action@latest
         with:
-          globs: |
-            dist/*.whl
-            dist/*.tar.gz
+          files: ${{ steps.build.outputs.snap }}
+
+      - name: "Snap Publish"
+        uses: snapcore/action-publish@214b86e5ca036ead1668c79afb81e550e6c54d40 # v1.2.0
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+        with:
+          snap: ${{ steps.build.outputs.snap }}
+          release: stable
 
       - name: "Send Failure Notification"
         if: ${{ failure() }}

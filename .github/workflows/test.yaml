@@ -24,7 +24,7 @@ jobs:
     if: ${{ !contains(github.event.head_commit.message, '#notest') }}
     uses: ./.github/workflows/build.yaml
     with:
-      version: ${{ github.ref_name }}
+      version: ""
       version-file: ""
 
   test:
@@ -61,7 +61,7 @@ jobs:
           path: dist
 
       - name: "Install UV"
-        uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
+        uses: astral-sh/setup-uv@61cb8a9741eeb8a550a1b8544337180c0fc8476b # v7.2.0
 
       - name: "Install Python ${{ matrix.version }}"
         run: |

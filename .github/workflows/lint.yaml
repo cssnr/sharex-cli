@@ -8,6 +8,7 @@ on:
       - ".gitattributes"
       - ".gitignore"
       - ".prettierignore"
+      - "MANIFEST.in"
   pull_request:
     branches: [master]
 
@@ -41,7 +42,7 @@ jobs:
         run: env
 
       - name: "Install UV"
-        uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
+        uses: astral-sh/setup-uv@61cb8a9741eeb8a550a1b8544337180c0fc8476b # v7.2.0
 
       - name: "Install Python"
         run: |
@@ -66,7 +67,7 @@ jobs:
 
       - name: "astral-sh/ruff"
         if: ${{ !cancelled() }}
-        uses: astral-sh/ruff-action@v3
+        uses: astral-sh/ruff-action@57714a7c8a2e59f32539362ba31877a1957dded1 # v3.5.1
         with:
           version: latest
 

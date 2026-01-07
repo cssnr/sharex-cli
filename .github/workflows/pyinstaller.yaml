@@ -59,7 +59,7 @@ jobs:
           echo "matrix.extra-args: ${{ matrix.extra-args }}"
 
       - name: "Install UV"
-        uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
+        uses: astral-sh/setup-uv@61cb8a9741eeb8a550a1b8544337180c0fc8476b # v7.2.0
 
       - name: "Install Python 3.13"
         shell: bash
@@ -108,7 +108,7 @@ jobs:
           uvx toml-run win-version -- --version "${{ env.version }}"
 
       - name: "Debug Windows Version"
-        if: ${{ matrix.os == 'windows-latest' }}
+        if: ${{ matrix.os == 'windows-latest' && inputs.windows-file }}
         continue-on-error: true
         shell: bash
         run: |
@@ -140,7 +140,7 @@ jobs:
 
       - name: "Archive Release"
         if: ${{ github.event_name == 'release' }}
-        uses: thedoctor0/zip-release@0.7.5
+        uses: thedoctor0/zip-release@b57d897cb5d60cb78b51a507f63fa184cfe35554 # 0.7.6
         with:
           type: zip
           directory: dist

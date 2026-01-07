@@ -6,7 +6,7 @@ on:
 
 env:
   name: "sharex-cli"
-  download-url: "https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/sharex_cli-${{ github.ref_name }}.tar.gz"
+  #download-url: "https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/sharex_cli-${{ github.ref_name }}.tar.gz"
 
 jobs:
   pyinstaller:
@@ -74,8 +74,8 @@ jobs:
           results="$(ls -lAh "${path}"/* | awk '{print $9" - "$5}')"
           md="Artifacts:\n\`\`\`text\n${results}\n\`\`\`"
           echo -e "${md}" >> "$GITHUB_STEP_SUMMARY"
-          echo "Verification String: '${name/-/_}-${tag}-'"
-          find "${path}" -type f | grep -- "${name/-/_}-${tag}-" > /dev/null
+          echo "Verification String: '${name//-/_}-${tag}-'"
+          find "${path}" -type f | grep -- "${name//-/_}-${tag}-" > /dev/null
 
       - name: "Publish to PyPI"
         id: publish
@@ -104,35 +104,19 @@ jobs:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           description: |
             - ${{ format('https://pypi.org/p/{0}/{1}', env.name, github.ref_name) }}
-            - ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}
+            - ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
   homebrew:
     name: "Homebrew"
     if: ${{ !github.event.release.prerelease }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    needs: [publish, pyinstaller]
-    steps:
-      - name: "Homebrew Action"
-        uses: cssnr/homebrew-action@master
-        with:
-          version: ${{ github.ref_name }}
-          repo: cssnr/homebrew-tap
-          token: ${{ secrets.HOMEBREW_PAT }}
-
-      #- name: "Homebrew Formula Action"
-      #  uses: mislav/bump-homebrew-formula-action@v3
-      #  env:
-      #    COMMITTER_TOKEN: ${{ secrets.HOMEBREW_PAT }}
-      #  with:
-      #    formula-name: sharex-cli.rb
-      #    tag-name: ${{ github.ref_name }}
-      #    download-url: ${{ env.download-url }}
-      #    #download-sha256: 64be704a875d2a59753d80ee8a533c3fe183e3f06807ff7dc2232938ccb01549
-      #    homebrew-tap: "cssnr/homebrew-tap"
-      #    create-pullrequest: false
-      #    create-branch: false
-      #    commit-message: "Bump {{formulaName}} to {{version}}"
+    uses: ./.github/workflows/homebrew.yaml
+    needs: [publish]
+    secrets: inherit
+    with:
+      name: "sharex-cli"
+      version: ${{ github.ref_name }}
+    permissions:
+      contents: read
 
   release:
     name: "Release"
@@ -177,4 +161,4 @@ jobs:
         uses: sarisia/actions-status-discord@b8381b25576cb341b2af39926ab42c5056cc44ed # v1.15.5
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          description: ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}
+          description: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

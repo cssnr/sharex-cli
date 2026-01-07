@@ -1,0 +1,76 @@
+name: "Homebrew"
+
+on:
+  workflow_call:
+    inputs: &inputs
+      name:
+        description: "Package Name"
+        type: string
+        default: "sharex-cli"
+      version:
+        description: "Build Version"
+        type: string
+        required: true
+  workflow_dispatch:
+    inputs: *inputs
+
+jobs:
+  homebrew:
+    name: "Homebrew"
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: "PyPi URL"
+        id: url
+        uses: cssnr/web-request-action@master
+        with:
+          method: "GET"
+          url: "https://pypi.org/pypi/${{ inputs.name }}/${{ inputs.version }}/json"
+          path: '$.urls[?(@.packagetype=="sdist")]'
+
+      - name: "Verify URL"
+        env:
+          url: ${{ fromJSON(steps.url.outputs.result).url }}
+          sha256: ${{ fromJSON(steps.url.outputs.result).digests.sha256 }}
+        run: |
+          echo "url: ${url}"
+          echo "sha256: ${sha256}"
+          if [ -z "${url}" ];then
+            echo "Missing URL"
+            exit 1
+          fi
+          if [ -z "${sha256}" ];then
+            echo "Missing SHA256"
+            exit 1
+          fi
+
+      - name: "Homebrew Action"
+        id: homebrew
+        uses: cssnr/homebrew-action@master
+        with:
+          url: ${{ fromJSON(steps.url.outputs.result).url }}
+          sha256: ${{ fromJSON(steps.url.outputs.result).digests.sha256 }}
+          repo: cssnr/homebrew-tap
+          formula: ${{ inputs.name }}
+          message: Bump ${{ inputs.name }} to ${{ inputs.version }}
+          branch: master
+          app_id: 146360
+          app_private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      #- name: "Homebrew Formula Action"
+      #  uses: mislav/bump-homebrew-formula-action@56a283fa15557e9abaa4bdb63b8212abc68e655c # v3.6
+      #  env:
+      #    COMMITTER_TOKEN: ${{ secrets.HOMEBREW_PAT }}
+      #  with:
+      #    formula-name: "${{ inputs.name }}"
+      #    tag-name: ${{ inputs.version }}
+      #    download-url: ${{ fromJSON(steps.url.outputs.result).url }}
+      #    download-sha256: ${{ fromJSON(steps.url.outputs.result).digests.sha256 }}
+      #    homebrew-tap: "cssnr/homebrew-tap"
+      #    create-pullrequest: false
+      #    create-branch: false
+      #    commit-message: "Bump {{formulaName}} to {{version}}"
