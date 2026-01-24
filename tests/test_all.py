@@ -4,7 +4,6 @@ from typing import TextIO
 
 from sharex import api
 
-
 path = Path(__file__).parent
 
 print(f"{path=}")

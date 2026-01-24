@@ -11,7 +11,6 @@ from jsonpath_ng.ext import parse
 
 from ._version import __version__
 
-
 session = requests.Session()
 
 session.headers.update({"user-agent": f"requests/sharex-{__version__}"})

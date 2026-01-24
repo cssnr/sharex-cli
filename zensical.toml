@@ -208,7 +208,6 @@ smart_enable = "all"
 [project.markdown_extensions.pymdownx.emoji]
 emoji_generator = "zensical.extensions.emoji.to_svg"
 emoji_index = "zensical.extensions.emoji.twemoji"
-# options.custom_icons = ["overrides/.icons"]
 
 [project.markdown_extensions.pymdownx.highlight]
 
@@ -229,3 +228,5 @@ alternate_style = true
 custom_checkbox = true
 
 [project.markdown_extensions.pymdownx.tilde]
+
+[project.markdown_extensions.pymdownx.snippets]

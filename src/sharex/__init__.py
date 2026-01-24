@@ -8,5 +8,4 @@ r"""
 
 from .api import get_config, upload_file
 
-
 __all__ = ["get_config", "upload_file"]

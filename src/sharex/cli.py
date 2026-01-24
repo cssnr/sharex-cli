@@ -20,7 +20,6 @@ from . import __doc__ as package_doc
 from . import api, utils
 from ._version import __version__
 
-
 app = typer.Typer(
     context_settings={"help_option_names": ["-h", "--help"]},
     pretty_exceptions_show_locals=False,

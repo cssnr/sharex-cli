@@ -8,15 +8,17 @@ icon: lucide/rocket
 
 [![PyPI Version](https://img.shields.io/pypi/v/sharex-cli?logo=pypi&logoColor=white&label=pypi)](https://pypi.org/project/sharex-cli/)
 [![TOML Python Version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcssnr%2Fsharex-cli%2Frefs%2Fheads%2Fmaster%2Fpyproject.toml&query=%24.project.requires-python&logo=python&logoColor=white&label=python)](https://github.com/cssnr/sharex-cli?tab=readme-ov-file#readme)
-[![PyPI Downloads](https://img.shields.io/pypi/dm/sharex-cli?logo=pypi&logoColor=white)](https://pypistats.org/packages/sharex-cli)
-[![Pepy Total Downloads](https://img.shields.io/pepy/dt/sharex-cli?logo=pypi&logoColor=white&label=total)](https://clickpy.clickhouse.com/dashboard/sharex-cli)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/sharex-cli?logo=socialblade&logoColor=white)](https://pypistats.org/packages/sharex-cli)
+[![Pepy Total Downloads](https://img.shields.io/pepy/dt/sharex-cli?logo=rolldown&logoColor=white&label=total)](https://clickpy.clickhouse.com/dashboard/sharex-cli)
 [![Codecov](https://codecov.io/gh/cssnr/sharex-cli/graph/badge.svg?token=A8NDHZ393X)](https://codecov.io/gh/cssnr/sharex-cli)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/sharex-cli?logo=github&label=updated)](https://github.com/cssnr/sharex-cli/pulse)
-[![GitHub Issues](https://img.shields.io/github/issues/cssnr/sharex-cli?logo=github)](https://github.com/cssnr/sharex-cli/issues)
-[![GitHub Discussions](https://img.shields.io/github/discussions/cssnr/sharex-cli?logo=github)](https://github.com/cssnr/sharex-cli/discussions)
-[![GitHub Forks](https://img.shields.io/github/forks/cssnr/sharex-cli?style=flat&logo=github)](https://github.com/cssnr/sharex-cli/forks)
-[![GitHub Repo Stars](https://img.shields.io/github/stars/cssnr/sharex-cli?style=flat&logo=github)](https://github.com/cssnr/sharex-cli/stargazers)
-[![GitHub Org Stars](https://img.shields.io/github/stars/cssnr?style=flat&logo=github&label=org%20stars)](https://cssnr.github.io/)
+[![Workflow Test](https://img.shields.io/github/actions/workflow/status/cssnr/sharex-cli/test.yaml?logo=cachet&label=test)](https://github.com/cssnr/sharex-cli/actions/workflows/test.yaml)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/sharex-cli?logo=listenhub&label=updated)](https://github.com/cssnr/sharex-cli/pulse)
+[![GitHub Contributors](https://img.shields.io/github/contributors-anon/cssnr/sharex-cli?logo=southwestairlines)](https://github.com/cssnr/sharex-cli/graphs/contributors)
+[![GitHub Issues](https://img.shields.io/github/issues/cssnr/sharex-cli?logo=codeforces&logoColor=white)](https://github.com/cssnr/sharex-cli/issues)
+[![GitHub Discussions](https://img.shields.io/github/discussions/cssnr/sharex-cli?logo=theconversation)](https://github.com/cssnr/sharex-cli/discussions)
+[![GitHub Forks](https://img.shields.io/github/forks/cssnr/sharex-cli?style=flat&logo=forgejo&logoColor=white)](https://github.com/cssnr/sharex-cli/forks)
+[![GitHub Repo Stars](https://img.shields.io/github/stars/cssnr/sharex-cli?style=flat&logo=gleam&logoColor=white)](https://github.com/cssnr/sharex-cli/stargazers)
+[![GitHub Org Stars](https://img.shields.io/github/stars/cssnr?style=flat&logo=apachespark&logoColor=white&label=org%20stars)](https://cssnr.github.io/)
 [![Discord](https://img.shields.io/discord/899171661457293343?logo=discord&logoColor=white&label=discord&color=7289da)](https://discord.gg/wXy6m2X8wY)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-72a5f2?logo=kofi&label=support)](https://ko-fi.com/cssnr)
 
@@ -24,31 +26,7 @@ Command Line Interface to Upload Files to a ShareX Server using a ShareX Custom 
 
 Upload any file, multiple files, directories, use globs, create archives and much more...
 
-=== "pip"
-
-    ```shell
-    pip install sharex-cli
-    ```
-
-=== "uv"
-
-    ```shell
-    uv tool install sharex-cli
-    ```
-
-=== "brew"
-
-    ```shell
-    brew install cssnr/tap/sharex-cli
-    ```
-
-=== "release"
-
-    ```shell
-    curl https://i.jpillora.com/cssnr/sharex-cli! | bash  # (1)!
-    ```
-
-    1.  For more details see the [Install Guide](cli.md#binary-release).
+--8<-- "docs/snippets/install.md"
 
 See the [Quick Start](#quick-start) section to get started...
 
@@ -78,35 +56,7 @@ First, install from [PyPI :lucide-arrow-up-right:](https://pypi.org/p/sharex-cli
 [Homebrew :lucide-arrow-up-right:](https://github.com/cssnr/homebrew-tap?tab=readme-ov-file#readme)
 or [GitHub :lucide-arrow-up-right:](https://github.com/cssnr/sharex-cli/releases/latest).
 
-=== "pip"
-
-    ```shell
-    pip install sharex-cli
-    ```
-
-=== "uv"
-
-    ```shell
-    uv tool install sharex-cli
-    ```
-
-=== "brew"
-
-    ```shell
-    brew install cssnr/tap/sharex-cli
-    ```
-
-=== "release"
-
-    ```shell
-    curl https://i.jpillora.com/cssnr/sharex-cli! | bash  # (1)!
-    ```
-
-    1.  Note: the `!` installs into `/usr/local/bin`.
-
-        Omit the `!` to use the current directory.
-
-        See [jpillora/installer :lucide-arrow-up-right:](https://github.com/jpillora/installer) for more details.
+--8<-- "docs/snippets/install.md"
 
 :lucide-arrow-right: See the [Install](cli.md#install) guide for more options.
 
@@ -180,10 +130,10 @@ Partial Configuration Example.
 
 &nbsp;
 
-[![Features](https://img.shields.io/badge/features-brightgreen?style=for-the-badge&logo=googleanalytics&logoColor=white)](https://github.com/cssnr/sharex-cli/issues/new?template=1-feature.yaml)
+[![Features](https://img.shields.io/badge/features-brightgreen?style=for-the-badge&logo=rocket&logoColor=white)](https://github.com/cssnr/sharex-cli/issues/new?template=1-feature.yaml)
 [![Issues](https://img.shields.io/badge/issues-red?style=for-the-badge&logo=southwestairlines&logoColor=white)](https://github.com/cssnr/sharex-cli/issues)
-[![Discussions](https://img.shields.io/badge/discussions-blue?style=for-the-badge&logo=rocketdotchat&logoColor=white)](https://github.com/cssnr/sharex-cli/discussions)
-[![Discord](https://img.shields.io/badge/discord-yellow?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/wXy6m2X8wY)
+[![Discussions](https://img.shields.io/badge/discussions-blue?style=for-the-badge&logo=theconversation&logoColor=white)](https://github.com/cssnr/sharex-cli/discussions)
+[![Discord](https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/wXy6m2X8wY)
 
 !!! question
 

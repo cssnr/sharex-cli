@@ -6,10 +6,10 @@ icon: lucide/message-circle-question-mark
 
 [![ShareX CLI](assets/images/logo.svg){ align=right width=96 }](https://github.com/cssnr/sharex-cli?tab=readme-ov-file#readme)
 
-[![Features](https://img.shields.io/badge/features-brightgreen?style=for-the-badge&logo=googleanalytics&logoColor=white)](https://github.com/cssnr/sharex-cli/issues/new?template=1-feature.yaml)
+[![Features](https://img.shields.io/badge/features-brightgreen?style=for-the-badge&logo=rocket&logoColor=white)](https://github.com/cssnr/sharex-cli/issues/new?template=1-feature.yaml)
 [![Issues](https://img.shields.io/badge/issues-red?style=for-the-badge&logo=southwestairlines&logoColor=white)](https://github.com/cssnr/sharex-cli/issues)
-[![Discussions](https://img.shields.io/badge/discussions-blue?style=for-the-badge&logo=rocketdotchat&logoColor=white)](https://github.com/cssnr/sharex-cli/discussions)
-[![Discord](https://img.shields.io/badge/discord-yellow?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/wXy6m2X8wY)
+[![Discussions](https://img.shields.io/badge/discussions-blue?style=for-the-badge&logo=theconversation&logoColor=white)](https://github.com/cssnr/sharex-cli/discussions)
+[![Discord](https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/wXy6m2X8wY)
 
 If you run into any [issues](https://github.com/cssnr/sharex-cli/issues),
 want to see more [features](https://github.com/cssnr/sharex-cli/issues/new?template=1-feature.yaml)
@@ -21,7 +21,7 @@ please let us know.
 
 For new features or enhancements, please submit a [Feature Requests](https://github.com/cssnr/sharex-cli/issues/new?template=1-feature.yaml).
 
-[:simple-googleanalytics: Request a Feature](https://github.com/cssnr/sharex-cli/issues/new?template=1-feature.yaml){ .md-button .md-button--primary }
+[:simple-rocket: &nbsp; Request a Feature](https://github.com/cssnr/sharex-cli/issues/new?template=1-feature.yaml){ .md-button .md-button--primary }
 
 ## Report Issues
 
@@ -29,14 +29,14 @@ If you run into any problems or find a bug, please [open an issue](https://githu
 
 **These reports are treated with the highest priority.**
 
-[:simple-southwestairlines: Report an Issue](https://github.com/cssnr/sharex-cli/issues){ .md-button .md-button--primary }
+[:simple-southwestairlines: &nbsp; Report an Issue](https://github.com/cssnr/sharex-cli/issues){ .md-button .md-button--primary }
 
 ## Start Discussions
 
 For any questions, start a [General](https://github.com/cssnr/sharex-cli/discussions/categories/general)
 or [Q&A](https://github.com/cssnr/sharex-cli/discussions/categories/q-a) Discussion.
 
-[:simple-rocketdotchat: Start A Discussion](https://github.com/cssnr/sharex-cli/discussions){ .md-button .md-button--primary }
+[:simple-theconversation: &nbsp; Start A Discussion](https://github.com/cssnr/sharex-cli/discussions){ .md-button .md-button--primary }
 
 ## Chat on Discord
 
@@ -44,7 +44,7 @@ You can chat with us about anything [on discord](https://discord.gg/wXy6m2X8wY).
 
 Here you can contact me directly, `Shane@111150265075298304`.
 
-[:fontawesome-brands-discord: Join Discord](https://discord.gg/wXy6m2X8wY){ .md-button .md-button--primary }
+[:fontawesome-brands-discord: &nbsp; Join Discord](https://discord.gg/wXy6m2X8wY){ .md-button .md-button--primary }
 
 &nbsp;
 
