@@ -14,7 +14,7 @@ on:
       windows-file:
         description: "Windows Version File"
         type: string
-        default: ".github/files/win-version.yaml"
+        default: "assets/win-version.yaml"
       source-file:
         description: "Source File"
         type: string
@@ -133,6 +133,7 @@ jobs:
           extract: true
 
       - name: "Windows Installer - Inno Setup"
+        if: ${{ matrix.os == 'windows-latest' }}
         env:
           version: ${{ inputs.version }}
         shell: pwsh
