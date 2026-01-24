@@ -114,10 +114,69 @@ jobs:
         run: |
           cat win-version.txt
 
-      - name: "Build"
+      # BEGIN - Windows Installer
+
+      - name: "Windows Installer - Build"
+        if: ${{ matrix.os == 'windows-latest' }}
         shell: bash
         run: |
           uvx toml-run pyinstaller -- ${{ matrix.extra-args }}
+
+      - name: "Windows Installer - Download PathMgr"
+        if: ${{ matrix.os == 'windows-latest' }}
+        uses: robinraju/release-downloader@daf26c55d821e836577a15f77d86ddc078948b05 # v1.12
+        with:
+          repository: "Bill-Stewart/PathMgr"
+          fileName: "PathMgr-2.0.0.zip"
+          out-file-path: "dist/PathMgr"
+          tag: "v2.0.0"
+          extract: true
+
+      - name: "Windows Installer - Inno Setup"
+        env:
+          version: ${{ inputs.version }}
+        shell: pwsh
+        run: |
+          echo "Building Version: $Env:version"
+          iscc.exe "/DMyAppVersion=$Env:version" installer.iss
+
+      - name: "Windows Installer - Debug Output"
+        if: ${{ matrix.os == 'windows-latest' }}
+        continue-on-error: true
+        shell: bash
+        run: |
+          echo "::group::dist"
+          ls -lAh dist/*
+          echo "::endgroup::"
+          echo "::group::out"
+          ls -lAhR out
+          echo "::endgroup::"
+
+      - name: "Windows Installer - Upload Artifact"
+        if: ${{ matrix.os == 'windows-latest' && github.event_name != 'release' }}
+        uses: actions/upload-artifact@v5
+        with:
+          name: windows-installer
+          path: out/*.exe
+
+      - name: "Windows Installer - Upload Release"
+        if: ${{ matrix.os == 'windows-latest' && github.event_name == 'release' }}
+        uses: cssnr/upload-release-action@latest
+        with:
+          globs: out/*.exe
+
+      - name: "Windows Installer - Cleanup"
+        if: ${{ matrix.os == 'windows-latest' }}
+        shell: bash
+        run: |
+          rm -rf dist out
+
+      # END - Windows Installer
+
+      - name: "Build"
+        shell: bash
+        run: |
+          uvx toml-run pyinstaller -- -F ${{ matrix.extra-args }}
 
       - name: "List Artifacts"
         continue-on-error: true
