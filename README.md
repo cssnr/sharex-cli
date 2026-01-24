@@ -79,6 +79,7 @@ curl https://i.jpillora.com/cssnr/sharex-cli! | bash
 See [jpillora/installer](https://github.com/jpillora/installer) for more details.  
 Alternatively, you can manually download a release for your system.
 
+- [Windows Installer](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-installer.exe) _amd64_
 - [Windows x86_64](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip) _amd64_
 - [macOS Apple Intel](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip) _amd64_
 - [macOS Apple Silicon](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-arm64.zip) _arm64_
