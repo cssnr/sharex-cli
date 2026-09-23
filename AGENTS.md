@@ -32,17 +32,17 @@ ShareX CLI, a Python CLI to Upload Files to a ShareX Server using a ShareX Custo
 
 Scripts are run via [toml-run](https://github.com/cssnr/toml-run) from [pyproject.toml](pyproject.toml):
 
-| Command          | What it does                                     |
-| ---------------- | ------------------------------------------------ |
-| `uv run test`    | Coverage run + report                            |
-| `uv run format`  | Full format: always run before finishing work    |
-| `uv run lint`    | Full lint: always run before finishing work      |
-| `uv run build`   | `hatch build` (wheel + sdist to `dist/`)         |
-| `uv run docs`    | `zensical serve --open --dev-addr 0.0.0.0:8000`  |
-| `uv run docs-build` | `zensical build --clean`                      |
-| `uv run pyinstaller` | PyInstaller Windows binary (uses `src/app.py`) |
+| Command              | What it does                                              |
+| -------------------- | --------------------------------------------------------- |
+| `uv run test`        | Coverage run + report                                     |
+| `uv run format`      | Full format: always run before finishing work             |
+| `uv run lint`        | Full lint: always run before finishing work               |
+| `uv run build`       | `hatch build` (wheel + sdist to `dist/`)                  |
+| `uv run docs`        | `zensical serve --open --dev-addr 0.0.0.0:8000`           |
+| `uv run docs-build`  | `zensical build --clean`                                  |
+| `uv run pyinstaller` | PyInstaller Windows binary (uses `src/app.py`)            |
 | `uv run win-version` | Generate `win-version.txt` from `assets/win-version.yaml` |
-| `uv run inno`    | Inno Setup compile (`iscc.exe installer.iss`)    |
+| `uv run inno`        | Inno Setup compile (`iscc.exe installer.iss`)             |
 
 Sub-scripts (also runnable individually): `bandit`, `mypy`, `ruff`, `validate` (validate-pyproject), `yamllint`. Add `-v` for verbose output (e.g. `uv run lint -v`).
 
