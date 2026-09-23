@@ -59,7 +59,7 @@ jobs:
           echo "env.name: ${{ env.name }}"
 
       - name: "Download Artifact"
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
           name: "dist"
           path: "dist"
