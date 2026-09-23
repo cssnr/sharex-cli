@@ -5,7 +5,7 @@ import sys
 import tempfile
 from json import JSONDecodeError
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, cast
 
 import click
 import pyperclip
@@ -78,7 +78,7 @@ def update_config(config_path: Path, config_files: List[Path]):
             vprint(f"2 {user_config=}")
 
     if not user_config:
-        res: Optional[str] = click.edit()
+        res = cast(Optional[str], click.edit())
         vprint(f"{res=}")
         if res:
             user_config = json.loads(res)
@@ -208,7 +208,7 @@ def main(  # NOSONAR
         # Process STDIN
         file_name = _name or f"{utils.gen_rand(8)}.txt"
         vprint(f"{file_name=}")
-        content = click.get_text_stream("stdin")
+        content = sys.stdin
         url = api.upload_file(config, file_name, content)
         print(url)
         copy_text(url)
