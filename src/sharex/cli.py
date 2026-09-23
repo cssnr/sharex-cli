@@ -5,7 +5,7 @@ import sys
 import tempfile
 from json import JSONDecodeError
 from pathlib import Path
-from typing import Any, Dict, List, Optional, cast
+from typing import Annotated, Any, Dict, List, Optional, cast
 
 import click
 import pyperclip
@@ -14,7 +14,6 @@ from rich import print
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
-from typing_extensions import Annotated
 
 from . import __doc__ as package_doc
 from . import api, utils

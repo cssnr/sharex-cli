@@ -18,6 +18,7 @@ dependencies = [
   "jsonpath-ng>=1,<2",
   "pyperclip>=1,<2",
   "requests>=2,<3",
+  "rich>=13.8.0",
   "typer>=0.27.2",
 ]
 dynamic = ["version"]
