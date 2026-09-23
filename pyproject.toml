@@ -3,7 +3,7 @@ name = "sharex-cli"
 description = "CLI to Upload Files to a ShareX Server using a ShareX Custom Uploader (.sxcu) Configuration File."
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "MIT License" }
+license = "MIT"
 authors = [{ name = "Shane" }]
 classifiers = [
   "Natural Language :: English",
