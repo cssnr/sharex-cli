@@ -14,10 +14,11 @@ classifiers = [
   "Typing :: Typed",
 ]
 dependencies = [
+  "click>=8,<9",
   "jsonpath-ng>=1,<2",
   "pyperclip>=1,<2",
   "requests>=2,<3",
-  "typer>=0.20.0",
+  "typer>=0.27.2",
 ]
 dynamic = ["version"]
 
@@ -37,23 +38,23 @@ sharex-cli = "sharex.cli:app"
 
 [dependency-groups]
 dev = [
-  "bandit>=1.9.3",
-  "black>=26.1.0",
-  "coverage>=7.13.1",
-  "hatch>=1.16.3",
-  "isort>=7.0.0",
-  "mypy>=1.19.1",
-  "pyinstaller>=6.18.0",
-  "pyinstaller-versionfile>=3.0.1",
-  "pytest>=9.0.2",
-  "ruff>=0.14.14",
-  "tombi>=0.7.23",
+  "bandit>=1.9.4",
+  "black>=26.5.1",
+  "coverage>=7.16.1",
+  "hatch>=1.18.1",
+  "isort>=9.0.1",
+  "mypy>=2.3.1",
+  "pyinstaller>=6.22.3",
+  "pyinstaller-versionfile>=3.1.0",
+  "pytest>=9.1.1",
+  "ruff>=0.16.8",
+  "tombi>=1.5.5",
   "toml-run>=0.0.2",
-  "ty>=0.0.13",
-  "typer>=0.21.1",
-  "types-pyperclip>=1.9.0.20250801",
-  "types-requests>=2.32.4.20260107",
-  "validate-pyproject[all]>=0.24.1",
+  "ty>=0.0.83",
+  "typer>=0.27.2",
+  "types-pyperclip>=1.11.0.20260508",
+  "types-requests>=2.33.0.20260906",
+  "validate-pyproject[all]>=0.26",
 ]
 
 # [build-system]
