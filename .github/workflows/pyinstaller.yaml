@@ -14,7 +14,7 @@ on:
       windows-file:
         description: "Windows Version File"
         type: string
-        default: ".github/files/win-version.yaml"
+        default: "assets/win-version.yaml"
       source-file:
         description: "Source File"
         type: string
@@ -47,7 +47,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: "Debug"
         continue-on-error: true
@@ -59,7 +59,7 @@ jobs:
           echo "matrix.extra-args: ${{ matrix.extra-args }}"
 
       - name: "Install UV"
-        uses: astral-sh/setup-uv@61cb8a9741eeb8a550a1b8544337180c0fc8476b # v7.2.0
+        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
 
       - name: "Install Python 3.13"
         shell: bash
@@ -124,7 +124,7 @@ jobs:
 
       - name: "Windows Installer - Download PathMgr"
         if: ${{ matrix.os == 'windows-latest' }}
-        uses: robinraju/release-downloader@daf26c55d821e836577a15f77d86ddc078948b05 # v1.12
+        uses: robinraju/release-downloader@28fc21f50d76778e7023361aa1f863e717d3d56f # v1.13
         with:
           repository: "Bill-Stewart/PathMgr"
           fileName: "PathMgr-2.0.0.zip"
@@ -133,6 +133,7 @@ jobs:
           extract: true
 
       - name: "Windows Installer - Inno Setup"
+        if: ${{ matrix.os == 'windows-latest' }}
         env:
           version: ${{ inputs.version }}
         shell: pwsh
@@ -154,7 +155,7 @@ jobs:
 
       - name: "Windows Installer - Upload Artifact"
         if: ${{ matrix.os == 'windows-latest' && github.event_name != 'release' }}
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: windows-installer
           path: out/*.exe
@@ -192,7 +193,7 @@ jobs:
 
       - name: "Upload to Actions"
         if: ${{ github.event_name != 'release' }}
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ matrix.name }}
           path: dist

@@ -19,3 +19,4 @@ coverage.xml
 /tests/files
 /tests/fake.json
 *.spec
+win-version.txt

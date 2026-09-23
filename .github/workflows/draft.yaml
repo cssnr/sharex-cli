@@ -1,0 +1,41 @@
+name: "Draft Release"
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["master"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  draft:
+    name: "Draft Release"
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v7
+
+      - name: "Draft Latest Release"
+        id: draft1
+        uses: cssnr/draft-release-action@master
+        with:
+          semver: patch
+          prerelease: false
+
+      - name: "Draft Beta Release"
+        id: draft2
+        uses: cssnr/draft-release-action@master
+        with:
+          semver: prerelease
+          prerelease: true
+
+      - name: "Process Release Draft URL"
+        run: |
+          echo "Latest: ${{ steps.draft1.outputs.url }}"
+          echo "Beta: ${{ steps.draft2.outputs.url }}"

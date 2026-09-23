@@ -1,6 +1,7 @@
 [![PyPI Version](https://img.shields.io/pypi/v/sharex-cli?logo=pypi&logoColor=white&label=pypi)](https://pypi.org/project/sharex-cli/)
 [![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/sharex-cli?logo=github)](https://github.com/cssnr/sharex-cli/releases)
 [![TOML Python Version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcssnr%2Fsharex-cli%2Frefs%2Fheads%2Fmaster%2Fpyproject.toml&query=%24.project.requires-python&logo=python&logoColor=white&label=python)](https://github.com/cssnr/sharex-cli?tab=readme-ov-file#readme)
+[![GitHub Downloads](https://img.shields.io/github/downloads/cssnr/sharex-cli/total?logo=github&label=downloads)](https://github.com/cssnr/sharex-cli/releases/latest)
 [![PyPI Downloads](https://img.shields.io/pypi/dm/sharex-cli?logo=socialblade&logoColor=white)](https://pypistats.org/packages/sharex-cli)
 [![Pepy Total Downloads](https://img.shields.io/pepy/dt/sharex-cli?logo=rolldown&logoColor=white&label=total)](https://clickpy.clickhouse.com/dashboard/sharex-cli)
 [![Codecov](https://codecov.io/gh/cssnr/sharex-cli/graph/badge.svg?token=A8NDHZ393X)](https://codecov.io/gh/cssnr/sharex-cli)
@@ -78,6 +79,7 @@ curl https://i.jpillora.com/cssnr/sharex-cli! | bash
 See [jpillora/installer](https://github.com/jpillora/installer) for more details.  
 Alternatively, you can manually download a release for your system.
 
+- [Windows Installer](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-installer.exe) _amd64_
 - [Windows x86_64](https://github.com/cssnr/sharex-cli/releases/latest/download/windows-amd64.zip) _amd64_
 - [macOS Apple Intel](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-amd64.zip) _amd64_
 - [macOS Apple Silicon](https://github.com/cssnr/sharex-cli/releases/latest/download/macos-arm64.zip) _arm64_
